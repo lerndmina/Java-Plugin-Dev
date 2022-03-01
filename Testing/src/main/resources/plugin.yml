@@ -1,0 +1,13 @@
+name: testplugin
+version: '${project.version}'
+main: dev.lerndmina.testplugin.Main
+api-version: 1.18
+prefix: Testplugin
+authors: [ Wild ]
+description: My testing plugin
+website: https://lerndmina.dev
+commands:
+  heal:
+    description: Heal yourself
+  test:
+    description: Test command

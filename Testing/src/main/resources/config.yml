@@ -1,0 +1,6 @@
+prefix: "&fTest Plugin &l>> &r"
+no-permission: "&cYou don't have permission to use this command."
+
+heal:
+  healsuccess: "§aYou have been healed!"
+  fullhealth: "§cYou are already at full health / food!"
