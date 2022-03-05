@@ -11,3 +11,13 @@ commands:
     description: Heal yourself
   test:
     description: Test command
+  vanish:
+    description: Vanish command
+  fireworks:
+    description: Fireworks command
+  guntoggle:
+    description: Toggle weapons
+  debug:
+    description: Toggles debug mode (for developers)
+  elytra:
+    description: Give an elytra that canels fall damage

@@ -1,6 +1,34 @@
 prefix: "&fTest Plugin &l>> &r"
 no-permission: "&cYou don't have permission to use this command."
 
+chat-enabled: "&aChat is now enabled for you."
+chat-disabled: "&cChat is now disabled for you."
+chat-disabled-notify: "&cYour chat is currently disabled."
+
+vanish-enabled: "&aYou are now vanished."
+vanish-disabled: "&cYou are no longer vanished."
+
+fireworks:
+  enabled-msg: "&aFireworks are now enabled for you."
+  disabled-msg: "&cFireworks are now disabled for you."
+  usage-msg: "&cUsage: /fireworks [on|off]"
+
+guns:
+  enabled-msg: "&aGuns are now enabled for you."
+  disabled-msg: "&cGuns are now disabled for you."
+  usage-msg: "&cUsage: /guns [on|off]"
+
+  # Gun data !!! MUST BE ALL CAPS !!! (https://papermc.io/javadocs/paper/1.18/org/bukkit/Material.html)
+  snowballgun:
+    item: IRON_HOE # Item ID of the snowball gun (default: IRON_HOE)
+    message: "&aYou have launched a snowball!" # Message sent when you shoot a snowball
+  arrowgun:
+    item: DIAMOND_HOE # Item ID of the arrow gun (default: DIAMOND_HOE)
+    message: "&aYou have launched an arrow!" # Message sent when you shoot an arrow
+
+test:
+  message: "Some test message"
+
 heal:
   healsuccess: "§aYou have been healed!"
   fullhealth: "§cYou are already at full health / food!"
