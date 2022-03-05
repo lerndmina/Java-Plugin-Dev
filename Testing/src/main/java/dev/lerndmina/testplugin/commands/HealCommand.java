@@ -11,7 +11,6 @@ import org.jetbrains.annotations.Nullable;
 import static org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH;
 
 public class HealCommand extends AbstractCommand {
-    private Main main; // Define main class
 
     public HealCommand(Main main) { // Import main for use in this class
         super(main);

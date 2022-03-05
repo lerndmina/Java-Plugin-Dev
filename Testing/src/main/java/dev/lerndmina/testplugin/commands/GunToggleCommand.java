@@ -9,7 +9,6 @@ import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 
 public class GunToggleCommand extends AbstractCommand {
-    private Main main; // Define main class
 
     public GunToggleCommand(Main main) { // Import main for use in this class
         super(main);
@@ -21,13 +20,13 @@ public class GunToggleCommand extends AbstractCommand {
         Player player = isPlayerAndHasPermission(sender, "wild.command.guntoggle"); // Check if player is online and has permission
         if (player != null) {
             if (args.length == 0){ // Check if there are no arguments
-                if (isListed(player)) {
-                    remove(player);
-                    sendMessage(player, configString("guns.disabled-msg"));
-                    sendConsoleInfo(player.getName() + " has disabled guns for them.");
-                } else {
+                if (!isListed(player)) {
                     add(player);
                     sendMessage(player, configString("guns.enabled-msg"));
+                    sendConsoleInfo(player.getName() + " has disabled guns for them.");
+                } else {
+                    remove(player);
+                    sendMessage(player, configString("guns.disabled-msg"));
                     sendConsoleInfo(player.getName() + " has enabled guns for them.");
                 }
 

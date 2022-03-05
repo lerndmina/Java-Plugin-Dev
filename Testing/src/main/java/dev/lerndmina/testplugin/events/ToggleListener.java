@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ToggleListener extends AbstractEvent implements Listener {
+public class ToggleListener extends AbstractEvent{
 
     private final List<UUID> chatDisabled = new ArrayList<>();
 

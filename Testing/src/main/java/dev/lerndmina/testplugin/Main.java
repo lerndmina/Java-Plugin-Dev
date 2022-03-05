@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public final class Main extends JavaPlugin implements Listener {
+public final class Main extends JavaPlugin {
+    private GunToggleCommand gunToggleCommand;
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -30,9 +32,12 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("test").setExecutor(new TemplateCommand(this));
         getCommand("vanish").setExecutor(new VanishCommand(this));
         getCommand("fireworks").setExecutor(new FireworkCommand(this));
-        getCommand("guntoggle").setExecutor(new GunToggleCommand(this));
         getCommand("debug").setExecutor(new DebugCommand(this));
         getCommand("elytra").setExecutor(new GiveElytraCommand(this));
+
+        // Gun toggle stuff
+        gunToggleCommand = new GunToggleCommand(this);
+        getCommand("guntoggle").setExecutor(gunToggleCommand);
 
         // Create config file and copy defaults
         getConfig().options().copyDefaults();
@@ -52,8 +57,11 @@ public final class Main extends JavaPlugin implements Listener {
      */
 
     public boolean fireworkEnabled = false; // Global firework toggle
-    public List<UUID> gunsEnabled = new ArrayList<>(); // List of people who have guns turned on
 
     // TODO: convert to list so that each player can have their own toggle
     public boolean debug = false;
+
+    public boolean isGunEnabled (Player player){
+       return gunToggleCommand.isListed(player);
+    }
 }

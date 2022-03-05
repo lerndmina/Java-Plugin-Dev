@@ -13,12 +13,12 @@ import java.util.List;
 import java.util.UUID;
 
 public abstract class AbstractCommand extends AbstractHelper implements CommandExecutor {
-    private final Main main; // Define main class
-    private final List<UUID> list = new ArrayList<>(); // Define vanished list
+    private final List<UUID> uuids = new ArrayList<>(); // Define UUID list
+    String permissionString;
 
     public AbstractCommand(Main main) {
-        super(main); // Import main for use in this class
-        this.main = main;
+        super(main);
+
     }
 
     @Override
@@ -29,17 +29,17 @@ public abstract class AbstractCommand extends AbstractHelper implements CommandE
     }
 
     public boolean isListed(Player player) {
-        return (list.contains(player.getUniqueId()));
+        return (uuids.contains(player.getUniqueId()));
     }
 
     public void add(Player player) {
-        if (this.isListed(player)) {
-            list.add(player.getUniqueId());
+        if (this.isLNotListed(player)) {
+            uuids.add(player.getUniqueId());
         }
     }
 
     public void remove(Player player) {
-        list.remove(player.getUniqueId());
+        uuids.remove(player.getUniqueId());
     }
 
 

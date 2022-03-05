@@ -5,7 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 public abstract class AbstractHelper {
-    private final Main main; // Define main class
+    protected final Main main; // Define main class
 
     public AbstractHelper(Main main) {
         this.main = main;

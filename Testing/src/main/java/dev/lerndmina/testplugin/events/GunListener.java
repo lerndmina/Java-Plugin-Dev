@@ -12,29 +12,30 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class GunListener extends AbstractEvent implements Listener {
-    private final Main main; // Define main class
+public class GunListener extends AbstractEvent{
+
+    // Read values from config.
+    Material snowballgun = Material.matchMaterial(configString("guns.snowballgun.item"));
+    Material arrowgun = Material.matchMaterial(configString("guns.arrowgun.item"));
+
     public GunListener(Main main) {
         super(main); // Import main for use in this class
-        this.main = main;
     }
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e) {
         Player player = e.getPlayer();
-
-        // Read values from config.
-        Material snowballgun = Material.matchMaterial(configString("guns.snowballgun.item"));
-        Material arrowgun = Material.matchMaterial(configString("guns.arrowgun.item"));
+        debugPlayerMessage(player, "Event triggered");
 
 
-        if (main.gunsEnabled.contains(player.getUniqueId())) { // Player is allowed to use guns.
+        if (main.isGunEnabled(player)) { // Player is allowed to use guns.
+            debugPlayerMessage(player, "Guns are enabled");
             if (hasItemInHand(player, snowballgun)) {
                 player.launchProjectile(Snowball.class);
-                sendMessage(player, configString("guns.snowballgun.message"));
+                debugPlayerMessage(player, configString("guns.snowballgun.message"));
             } else if (hasItemInHand(player, arrowgun)) {
                 player.launchProjectile(Arrow.class);
-                sendMessage(player, configString("guns.arrowgun.message"));
+                debugPlayerMessage(player, configString("guns.arrowgun.message"));
             }
         }
     }
@@ -44,10 +45,11 @@ public class GunListener extends AbstractEvent implements Listener {
         Projectile projectile = e.getEntity();
 
         if (projectile.getShooter() instanceof Player) {
-         Player p = (Player) projectile.getShooter();
-            if ((main.gunsEnabled.contains(p.getUniqueId()) && (projectile instanceof Arrow))) {
+            Player player = (Player) projectile.getShooter();
+
+            if ((main.isGunEnabled(player) && (projectile instanceof Arrow) && (hasItemInHand(player, arrowgun)))) {
                 projectile.remove();
-                debugPlayerMessage(p, "Projectile removed");
+                debugPlayerMessage(player, "Projectile removed");
             }
         }
     }

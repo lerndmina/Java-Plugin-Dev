@@ -9,10 +9,10 @@ import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 
 public class DebugCommand extends AbstractCommand {
-    private Main main; // Define main class
 
     public DebugCommand(Main main) { // Import main for use in this class
         super(main);
+        sendConsoleInfo("Debug instance loaded " + this.toString() + " main: " + main.toString() + " Main.Debug: " + main.debug);
     }
 
     @Override
@@ -20,6 +20,8 @@ public class DebugCommand extends AbstractCommand {
 
         Player player = isPlayerAndHasPermission(sender, "wild.command.debug"); // Check if player is online and has permission
         if (player != null) {
+            sendConsoleInfo("A different title " + this.toString());
+            sendConsoleInfo("Main: " + main.toString());
             main.debug = !main.debug; // Toggle debug
             sendMessage(player, "&aDebug is now " + main.debug); // Send message to player
         }

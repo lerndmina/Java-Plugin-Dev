@@ -8,7 +8,6 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class FireworkCommand extends AbstractCommand {
-    private Main main; // Define main class
 
     public FireworkCommand(Main main) { // Import main for use in this class
         super(main);

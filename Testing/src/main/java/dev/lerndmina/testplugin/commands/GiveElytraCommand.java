@@ -14,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class GiveElytraCommand extends AbstractCommand {
-    private Main main; // Define main class
 
     public GiveElytraCommand(Main main) { // Import main for use in this class
         super(main);

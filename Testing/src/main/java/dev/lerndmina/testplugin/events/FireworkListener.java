@@ -13,10 +13,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.meta.FireworkMeta;
 
 public class FireworkListener extends AbstractEvent implements Listener {
-    private final Main main; // Define main class
     public FireworkListener(Main main) {
         super(main); // Import main for use in this class
-        this.main = main;
     }
 
     @EventHandler
