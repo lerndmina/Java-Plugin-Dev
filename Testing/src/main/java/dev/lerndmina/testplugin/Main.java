@@ -35,6 +35,7 @@ public final class Main extends JavaPlugin {
         getCommand("debug").setExecutor(new DebugCommand(this));
         getCommand("elytra").setExecutor(new GiveElytraCommand(this));
         getCommand("book").setExecutor(new BookCommand(this));
+        getCommand("fly").setExecutor(new FlyCommand(this));
 
         // Gun toggle stuff
         gunToggleCommand = new GunToggleCommand(this);

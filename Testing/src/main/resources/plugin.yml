@@ -23,3 +23,5 @@ commands:
     description: Give an elytra that canels fall damage
   book:
     description: Book Command
+  fly:
+    description: Toggles fly for you or a friend!
