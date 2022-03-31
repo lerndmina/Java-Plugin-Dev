@@ -16,7 +16,7 @@ public class FireworkCommand extends AbstractCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-        Player player = isPlayerAndHasPermission(sender, "wild.command.firework"); // Check if player is online and has permission
+        Player player = isPlayerAndHasPermission(sender, "wild.command.firework", false); // Check if player is online and has permission
         if (player != null) {
             if (args.length == 0){
                 main.fireworkEnabled = !main.fireworkEnabled; // Toggle firework

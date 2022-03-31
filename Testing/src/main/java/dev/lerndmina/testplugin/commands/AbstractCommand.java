@@ -44,15 +44,17 @@ public abstract class AbstractCommand extends AbstractHelper implements CommandE
 
 
     // Check for a player
-    public Player isPlayerAndHasPermission(Object sender, String permission) {
+    public Player isPlayerAndHasPermission(Object sender, String permission, Boolean allowConsole) {
         if (sender instanceof Player) { // If sender is player check for permission
             if (permission.equals("") || (hasPermission((Player) sender, permission))) {// If there is no permission return the player
                 return (Player) sender;
             } else {
                 return null;
             }
-        } else { // If sender is console return null
-            sendConsoleWarn("&cThis command can only be ran by a player.");
+        } else if (allowConsole){ // If console and console is allowed
+            return null;
+        } else { // If console and console is not allowed
+            sendConsoleInfo("Console is not allowed to run this command.");
             return null;
         }
     }

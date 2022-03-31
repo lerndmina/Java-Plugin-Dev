@@ -19,7 +19,7 @@ public class ElytraFallListener extends AbstractEvent{
 
     @EventHandler
     private void onElytraFall(EntityDamageEvent e) {
-        if ((e.getEntity() instanceof Player) && (e.getCause() == DamageCause.FALL)) {
+        if ((e.getEntity() instanceof Player) && ((e.getCause() == DamageCause.FALL) || (e.getCause() == DamageCause.FLY_INTO_WALL))) {
             Player p = (Player) e.getEntity();
             if (!hasPermission(p, "wild.event.elytrafall")) {
                 return;

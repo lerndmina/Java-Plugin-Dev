@@ -21,3 +21,5 @@ commands:
     description: Toggles debug mode (for developers)
   elytra:
     description: Give an elytra that canels fall damage
+  book:
+    description: Book Command

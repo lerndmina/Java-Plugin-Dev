@@ -1,6 +1,14 @@
 prefix: "&fTest Plugin &l>> &r"
 no-permission: "&cYou don't have permission to use this command."
 
+book:
+  title: "The best book"
+  author: "Some Guy"
+  pages: # Use § for colours & \n for new line
+    - "Page1\nNew Line Woah\n§aColours!"
+    - "Page2"
+    - "Page3"
+
 chat-enabled: "&aChat is now enabled for you."
 chat-disabled: "&cChat is now disabled for you."
 chat-disabled-notify: "&cYour chat is currently disabled."

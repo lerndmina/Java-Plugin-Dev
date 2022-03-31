@@ -17,7 +17,7 @@ public class GunToggleCommand extends AbstractCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-        Player player = isPlayerAndHasPermission(sender, "wild.command.guntoggle"); // Check if player is online and has permission
+        Player player = isPlayerAndHasPermission(sender, "wild.command.guntoggle", false); // Check if player is online and has permission
         if (player != null) {
             if (args.length == 0){ // Check if there are no arguments
                 if (!isListed(player)) {

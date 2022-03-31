@@ -21,8 +21,8 @@ public class JoinListener extends AbstractEvent{
     public void onPlayerJoin(PlayerJoinEvent e) {
 
         e.getPlayer().sendTitle(
-                (ChatColor.translateAlternateColorCodes('&', "Welcome &e" + e.getPlayer().getName())),
-                ChatColor.GOLD + "Hello there!",
+                (parseColor("Welcome &e" + e.getPlayer().getName())),
+                parseColor("&6Hello There"),
                 20,
                 20,
                 20);

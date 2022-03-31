@@ -17,13 +17,12 @@ public class DebugCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-
-        Player player = isPlayerAndHasPermission(sender, "wild.command.debug"); // Check if player is online and has permission
-        if (player != null) {
-            sendConsoleInfo("A different title " + this.toString());
-            sendConsoleInfo("Main: " + main.toString());
-            main.debug = !main.debug; // Toggle debug
+        Player player = isPlayerAndHasPermission(sender, "wild.command.debug", true); // Check if player is online and has permission
+        main.debug = !main.debug; // Toggle debug
+        if (player != null) { // Handle player
             sendMessage(player, "&aDebug is now " + main.debug); // Send message to player
+        } else { // Handle console
+            sendConsoleInfo("Debug is now  " + main.debug);
         }
         return false;
     }

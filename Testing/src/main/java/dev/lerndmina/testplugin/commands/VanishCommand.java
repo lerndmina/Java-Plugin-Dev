@@ -16,7 +16,7 @@ public class VanishCommand extends AbstractCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-        Player player = isPlayerAndHasPermission(sender, "wild.command.vanish"); // Check if player is online and has permission
+        Player player = isPlayerAndHasPermission(sender, "wild.command.vanish", false); // Check if player is online and has permission
         if (player != null) {
 
             if (isLNotListed(player)) { // They are not vanished, vanish them
