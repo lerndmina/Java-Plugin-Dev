@@ -25,3 +25,5 @@ commands:
     description: Book Command
   fly:
     description: Toggles fly for you or a friend!
+  punish:
+    description: Punish a player.

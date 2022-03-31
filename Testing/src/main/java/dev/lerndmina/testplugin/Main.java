@@ -36,6 +36,7 @@ public final class Main extends JavaPlugin {
         getCommand("elytra").setExecutor(new GiveElytraCommand(this));
         getCommand("book").setExecutor(new BookCommand(this));
         getCommand("fly").setExecutor(new FlyCommand(this));
+        getCommand("punish").setExecutor(new PunishCommand(this));
 
         // Gun toggle stuff
         gunToggleCommand = new GunToggleCommand(this);
@@ -61,7 +62,7 @@ public final class Main extends JavaPlugin {
     public boolean fireworkEnabled = false; // Global firework toggle
 
     // TODO: convert to list so that each player can have their own toggle
-    public boolean debug = false;
+    public boolean debug = true;
 
     public boolean isGunEnabled (Player player){
        return gunToggleCommand.isListed(player);

@@ -3,6 +3,7 @@ package dev.lerndmina.testplugin;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+
 import java.util.List;
 
 public abstract class AbstractHelper {
@@ -36,21 +37,23 @@ public abstract class AbstractHelper {
         }
     }
 
-    public void debugPlayerMessage(Player p, String message) {
-        if (main.debug) {
-            p.sendMessage(parseColor("&c&lDEBUG &4&l>> &r" + message));
+    public String stringFromArgs(String[] arr, Integer arrPos) {
+        StringBuilder builder = new StringBuilder();
+        for (int index = arrPos; index < arr.length; index++) {
+            builder.append(arr[index]).append(" ");
         }
+        return parseColor(builder.toString());
     }
 
-    public String parseColor (String content){
+    public String parseColor(String content) {
         return (ChatColor.translateAlternateColorCodes('&', content));
     }
 
-
-    // !!! ITEM CHECKS !!!
-    public boolean hasItemInHand(Player p, Material material) {
-        return p.getInventory().getItemInMainHand().getType().equals(material);
-        // Returns true if the item in the players hand is the same as the material
+    public void debugPlayerMessage(Player p, String message) {
+        if (main.debug) {
+            p.sendMessage(parseColor("&c&lDEBUG &4&l>> &r" + message));
+            sendConsoleInfo("&c&lDEBUG &4&l>> &r" + message);
+        }
     }
 
     public void sendMessage(Player player, String message) {
@@ -63,5 +66,11 @@ public abstract class AbstractHelper {
 
     public void sendConsoleWarn(String message) {
         main.getLogger().warning(parseColor(message));
+    }
+
+    // !!! ITEM CHECKS !!!
+    public boolean hasItemInHand(Player p, Material material) {
+        return p.getInventory().getItemInMainHand().getType().equals(material);
+        // Returns true if the item in the players hand is the same as the material
     }
 }
