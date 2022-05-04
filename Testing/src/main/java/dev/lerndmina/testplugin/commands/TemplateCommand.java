@@ -14,9 +14,9 @@ public class TemplateCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        Player player = isPlayerAndHasPermission(sender, "wild.command.REPLACEME", false); // Check if player is online and has permission
+        Player player = isPlayerAndHasPermission(sender, "wild.command.REPLACEME", false);
         if (player != null) { // Execute the command and run this code.
-            sendMessage(player, stringFromArgs(args, 2));
+            sendMessage(player, stringFromArgs(args, 1));
         }
         return false;
     }

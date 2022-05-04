@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class PunishCommand extends AbstractCommand {
 
@@ -23,11 +25,8 @@ public class PunishCommand extends AbstractCommand {
 
         if (player != null) { // Execute the command and run this code.
             if (args.length >= 2) {
-                if (Bukkit.getPlayer(args[0]) != null) { // Handle online players & offline cached players.
-                    Player target = (Player) Bukkit.getPlayer(args[0]);
-                    assert target != null;
-
-
+                Player target = Bukkit.getPlayer(args[0]);
+                if (target != null) { // Handle online players.
                     // Check if reason exists if not say no reason
                     String reason = null;
                     Integer getTime = null;
@@ -61,7 +60,7 @@ public class PunishCommand extends AbstractCommand {
                             break;
 
                         case "tempban":
-                            fullReason = "You have been banned for " + reason + "\n This action was performed by " + player.getName();
+                            fullReason = "You have been tempbanned for " + reason + "\n This action was performed by " + player.getName();
                             try {
                                 getTime = Integer.parseInt(args[2]);
                             } catch (Exception e) {

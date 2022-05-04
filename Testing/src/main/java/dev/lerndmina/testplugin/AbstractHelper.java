@@ -3,6 +3,8 @@ package dev.lerndmina.testplugin;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -12,6 +14,8 @@ public abstract class AbstractHelper {
     public AbstractHelper(Main main) {
         this.main = main;
     }
+
+    public static final int GUI_WIDTH = 9;
 
     // Grab things from the config file
     public String configString(String path) {
@@ -23,7 +27,20 @@ public abstract class AbstractHelper {
     }
 
     public Boolean configBool(String path) {
-        return main.getConfig().getBoolean(path);
+        return main.getConfig().getBoolean(path);   
+    }
+
+    public void addButtonToUI(Inventory ui, ItemStack item, int position, boolean[] arr) {
+        arr[position] = true;
+        ui.setItem(position, item);
+    }
+
+    public boolean[] uiArray(int rows){
+        return new boolean[rows * GUI_WIDTH];
+    }
+
+    public int menuSize(int rows){
+        return rows * GUI_WIDTH;
     }
 
     // Check for permission
@@ -51,14 +68,19 @@ public abstract class AbstractHelper {
 
     public void debugPlayerMessage(Player p, String message) {
         if (main.debug) {
-            p.sendMessage(parseColor("&c&lDEBUG &4&l>> &r" + message));
-            sendConsoleInfo("&c&lDEBUG &4&l>> &r" + message);
+            p.sendMessage(parseColor("&c&lDEBUG &4&l>> &c" + message));
+            sendConsoleInfo("&c&lDEBUG &4&l>> &c" + message);
         }
     }
 
     public void sendMessage(Player player, String message) {
         player.sendMessage(parseColor(main.getConfig().getString("prefix") + message));
     }
+
+    public void sendCleanMessage(Player player, String message) {
+        player.sendMessage(parseColor(message));
+    }
+
 
     public void sendConsoleInfo(String message) {
         main.getLogger().info(parseColor(message));

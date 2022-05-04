@@ -9,6 +9,9 @@ book:
     - "Page2"
     - "Page3"
 
+punish:
+  default-message: You have been %action% for %time%
+
 chat-enabled: "&aChat is now enabled for you."
 chat-disabled: "&cChat is now disabled for you."
 chat-disabled-notify: "&cYour chat is currently disabled."
@@ -40,3 +43,17 @@ test:
 heal:
   healsuccess: "§aYou have been healed!"
   fullhealth: "§cYou are already at full health / food!"
+
+menu:
+  EGG:
+    name: "&aEgg"
+    position: 1
+    lore:
+      - "&fThis is an egg"
+      - "&fThis is an egg3"
+  PORKCHOP:
+    name: "&aPorkchop"
+    position: 11
+    lore:
+      - "&fThis is a porkchop"
+      - "&fThis is a porkchop"

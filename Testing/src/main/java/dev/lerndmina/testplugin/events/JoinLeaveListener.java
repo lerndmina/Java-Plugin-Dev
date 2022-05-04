@@ -1,19 +1,16 @@
 package dev.lerndmina.testplugin.events;
 
 
-import dev.lerndmina.testplugin.AbstractHelper;
 import dev.lerndmina.testplugin.Main;
-import dev.lerndmina.testplugin.commands.AbstractCommand;
-import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 
-public class JoinListener extends AbstractEvent{
+public class JoinLeaveListener extends AbstractEvent{
 
 
-    public JoinListener(Main main) {
+    public JoinLeaveListener(Main main) {
         super(main);
     }
 

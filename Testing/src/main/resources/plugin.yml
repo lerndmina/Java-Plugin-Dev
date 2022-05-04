@@ -20,10 +20,16 @@ commands:
   debug:
     description: Toggles debug mode (for developers)
   elytra:
-    description: Give an elytra that canels fall damage
+    description: Give an elytra that cancels fall damage
   book:
     description: Book Command
   fly:
     description: Toggles fly for you or a friend!
   punish:
     description: Punish a player.
+  pm:
+    description: Message a player privately
+  r:
+    description: Reply to a player privately
+  menu:
+    description: Open the main menu

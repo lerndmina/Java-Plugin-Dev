@@ -25,7 +25,7 @@ public class GunListener extends AbstractEvent{
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e) {
         Player player = e.getPlayer();
-        debugPlayerMessage(player, "Event triggered");
+        debugPlayerMessage(player, "Event triggered " + e.getEventName());
 
 
         if (main.isGunEnabled(player)) { // Player is allowed to use guns.
