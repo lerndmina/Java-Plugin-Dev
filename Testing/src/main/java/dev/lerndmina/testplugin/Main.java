@@ -30,6 +30,7 @@ public final class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new FireworkListener(this), this);
         Bukkit.getPluginManager().registerEvents(new GunListener(this), this);
         Bukkit.getPluginManager().registerEvents(new ElytraFallListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new MenuListener(this), this);
 
         // Register commands
         getCommand("heal").setExecutor(new HealCommand(this));
