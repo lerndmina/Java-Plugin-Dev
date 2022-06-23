@@ -15,8 +15,6 @@ commands:
     description: Vanish command
   fireworks:
     description: Fireworks command
-  guntoggle:
-    description: Toggle weapons
   debug:
     description: Toggles debug mode (for developers)
   elytra:
@@ -33,3 +31,9 @@ commands:
     description: Reply to a player privately
   menu:
     description: Open the main menu
+  fruit:
+    description: A test for tab-complete!
+  flyboost:
+    description: Toggle flyboost
+  oogabooga:
+    description: Oogabooga command

@@ -5,6 +5,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class TemplateCommand extends AbstractCommand {
 
@@ -14,10 +17,15 @@ public class TemplateCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        Player player = isPlayerAndHasPermission(sender, "wild.command.REPLACEME", false);
-        if (player != null) { // Execute the command and run this code.
-            sendMessage(player, stringFromArgs(args, 1));
+        Player p = isPlayerAndHasPermission(sender, "wild.command.REPLACEME", false);
+        if (p != null) { // Execute the command and run this code.
+            sendMessage(p, stringFromArgs(args, 0));
         }
         return false;
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
+        return null;
     }
 }

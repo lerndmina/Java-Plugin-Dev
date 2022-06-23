@@ -6,10 +6,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class PunishCommand extends AbstractCommand {
@@ -74,12 +75,29 @@ public class PunishCommand extends AbstractCommand {
                             break;
 
                         case "mute":
-                            sendMessage(player, "This is not functional yet : Mute");
-                            break;
-
+                            fullReason = "You have been muted for " + reason + " This action was performed by " + player.getName();
+                            if (main.muted.contains(target.getUniqueId())) {
+                                sendMessage(player, target.getName() + " is already muted");
+                                break;
+                            } else {
+                                main.muted.add(target.getUniqueId());
+                                main.saveMutes();
+                                sendMessage(player,  target.getName() + " has been muted");
+                                sendMessage(target, fullReason);
+                                break;
+                            }
                         case "unmute":
-                            sendMessage(player, "This is not functional yet : Unmute");
-                            break;
+                            fullReason = "You have been unmuted " + " This action was performed by " + player.getName();
+                            if (!main.muted.contains(target.getUniqueId())) {
+                                sendMessage(player, target.getName() + " is not muted");
+                                break;
+                            } else {
+                                main.muted.remove(target.getUniqueId());
+                                main.saveMutes();
+                                sendMessage(player,  target.getName() + " has been unmuted");
+                                sendMessage(target, fullReason);
+                                break;
+                            }
                         default:
                             sendMessage(player, "&cIncorrect command argument. Please specify kick/ban/tempban/mute/unmute");
                             return false;
@@ -92,5 +110,29 @@ public class PunishCommand extends AbstractCommand {
             }
         }
         return false;
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
+        if (args.length == 1) {
+            List<String> names = new ArrayList<>();
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                names.add(player.getName());
+            }
+            return StringUtil.copyPartialMatches(args[0], names, new ArrayList<>());
+        } else if (args.length == 2){
+            return StringUtil.copyPartialMatches(args[1], Arrays.asList(
+                    "kick",
+                    "ban",
+                    "tempban",
+                    "mute",
+                    "unmute"
+            ), new ArrayList<>());
+        } else if (args.length == 3){
+            return Collections.singletonList("time / reason");
+        } else if (args.length == 4){
+            return Collections.singletonList("reason");
+        }
+        return null;
     }
 }

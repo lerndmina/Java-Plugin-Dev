@@ -6,8 +6,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.List;
-
 public abstract class AbstractHelper {
     protected final Main main; // Define main class
 
@@ -43,9 +41,19 @@ public abstract class AbstractHelper {
         return rows * GUI_WIDTH;
     }
 
+    // Equalsignorecase for strings
+    public boolean listCompare(String needle, String... haystack) {
+        for (String strings : haystack) {
+            if (needle.equalsIgnoreCase(strings)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Check for permission
     public boolean hasPermission(Player player, String permission) {
-        if (player.hasPermission(permission)) { // If player has permission return the player
+        if (player.hasPermission(permission) || permission.equals("")) { // If player has permission return the player
             return true;
         } else { // If player doesn't have permission return null
             sendMessage(player, main.getConfig().getString("no-permission"));

@@ -28,7 +28,7 @@ public class MenuListener extends AbstractEvent {
 
             e.setCancelled(true);
             switch (e.getRawSlot()){
-                case 0:
+                case 0: // Close menu
                     break;
                 case 11: // Flytoggle
                     if (player.getAllowFlight()){
