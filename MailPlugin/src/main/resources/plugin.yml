@@ -1,0 +1,12 @@
+name: MailPlugin
+version: '${project.version}'
+main: dev.lerndmina.mailplugin.MailPlugin
+api-version: 1.18
+authors: [ Wild ]
+description: Send mail to other players
+website: lerndmina.dev
+
+
+commands:
+  template:
+    description: Template Test Command
