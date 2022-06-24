@@ -1,6 +1,8 @@
 prefix: "&fCoolPlugin Yes &l>> &r"
 no-permission: "&cYou don't have permission to use this command."
 
+log-regex: "(/home|/sethome|/homes)"
+
 book:
   title: "The best book"
   author: "Some Guy"

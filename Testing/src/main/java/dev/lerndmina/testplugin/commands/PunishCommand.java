@@ -75,7 +75,7 @@ public class PunishCommand extends AbstractCommand {
                             break;
 
                         case "mute":
-                            fullReason = "You have been muted for " + reason + " This action was performed by " + player.getName();
+                            fullReason = "You have been muted for " + reason + " by " + player.getName();
                             if (main.muted.contains(target.getUniqueId())) {
                                 sendMessage(player, target.getName() + " is already muted");
                                 break;
@@ -87,7 +87,7 @@ public class PunishCommand extends AbstractCommand {
                                 break;
                             }
                         case "unmute":
-                            fullReason = "You have been unmuted " + " This action was performed by " + player.getName();
+                            fullReason = "You have been unmuted by " + player.getName();
                             if (!main.muted.contains(target.getUniqueId())) {
                                 sendMessage(player, target.getName() + " is not muted");
                                 break;

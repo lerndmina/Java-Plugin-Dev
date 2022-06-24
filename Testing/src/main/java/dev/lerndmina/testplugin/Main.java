@@ -5,7 +5,6 @@ import dev.lerndmina.testplugin.commands.*;
 import dev.lerndmina.testplugin.commands.privateMessage.PrivateMessageCommand;
 import dev.lerndmina.testplugin.commands.privateMessage.ReplyCommand;
 import dev.lerndmina.testplugin.events.*;
-import org.apache.kafka.common.protocol.types.Field;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,14 +12,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 import java.util.logging.Filter;
 import java.util.logging.LogRecord;
-import java.util.stream.Collectors;
 
 
 public final class Main extends JavaPlugin implements Listener, Filter {
@@ -47,6 +43,7 @@ public final class Main extends JavaPlugin implements Listener, Filter {
         Bukkit.getPluginManager().registerEvents(new MenuListener(this), this);
         Bukkit.getPluginManager().registerEvents(new FlyBoostListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PunishMutedListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new CommandLogEvent(this), this);
 
         // Register commands
         getCommand("heal").setExecutor(new HealCommand(this));
@@ -95,17 +92,20 @@ public final class Main extends JavaPlugin implements Listener, Filter {
         getCommand("oogabooga").setExecutor(new OogaBoogaCommand(this));
         getCommand("oogabooga").setTabCompleter(new OogaBoogaCommand(this));
 
+        getCommand("log").setExecutor(new LogCommand(this));
+        getCommand("log").setTabCompleter(new LogCommand(this));
+
 
         // Initialise storage
         recentMessages = new HashMap<>();
 
-        muted = convertToUUIDList(loadList("muted.json"));
-        if (muted != null){
-            getLogger().info(muted.size() + " muted players loaded!");
-        } else {
-            muted = new ArrayList<>();
-            getLogger().info("0 muted players loaded!");
+        cmdLog = loadList("cmdLog.json");
+        if (cmdLog == null) {
+            cmdLog = new ArrayList<>();
         }
+        getLogger().info("Loaded " + cmdLog.size() + " entries from the log");
+
+        muted = loadUUIDListFromFile("muted.json", "Muted Players");
 
         // Create config if needed file and copy defaults
         saveDefaultConfig();
@@ -116,9 +116,20 @@ public final class Main extends JavaPlugin implements Listener, Filter {
         // Plugin shutdown logic
         // save data to config file
 
-        saveList(convertToStringList(muted), "muted.json");
+//        saveList(convertToStringList(muted), "muted.json");
 
         getLogger().info("Plugin unloaded not pog");
+    }
+
+    public ArrayList<UUID> loadUUIDListFromFile(String filename, String friendlyName) {
+        ArrayList<UUID> uuidlist = convertToUUIDList(loadList(filename));
+        if (uuidlist != null) {
+            getLogger().info(uuidlist.size() + " " + friendlyName + " loaded!");
+            return uuidlist;
+        } else {
+            getLogger().info("0 " + friendlyName + " loaded!");
+            return new ArrayList<>();
+        }
     }
 
     public ArrayList<String> convertToStringList(ArrayList<UUID> list){
@@ -142,7 +153,7 @@ public final class Main extends JavaPlugin implements Listener, Filter {
                 try {
                     ulist.add(UUID.fromString(str));
                 } catch (IllegalArgumentException e){
-                    getLogger().info("Invalid UUID in mute list: " + str);
+                    getLogger().info("Invalid UUID in list: " + str);
                 }
             }
             return ulist;
@@ -155,9 +166,6 @@ public final class Main extends JavaPlugin implements Listener, Filter {
         File file = new File(getDataFolder() + "/" + filename);
         getLogger().info(getDataFolder().toString());
         try {
-            if (file.exists()){
-                file.delete();
-            }
             file.createNewFile();
             Writer writer = new FileWriter(file, false);
             gson.toJson(arr, writer);
@@ -181,8 +189,7 @@ public final class Main extends JavaPlugin implements Listener, Filter {
                 throw new RuntimeException(e);
             }
             ArrayList<String> arrlist = gson.fromJson(reader, ArrayList.class);
-            getLogger().info("Loaded " + filename);
-            return arrlist;
+           return arrlist;
         }
         return null;
     }
@@ -212,6 +219,9 @@ public final class Main extends JavaPlugin implements Listener, Filter {
 
     // list of muted players
     public ArrayList<UUID> muted = new ArrayList<>();
+
+    // Log arraylist
+    public ArrayList<String> cmdLog = new ArrayList<>();
 
     public void saveMutes(){
         saveList(convertToStringList(muted), "muted.json");

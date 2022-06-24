@@ -37,3 +37,5 @@ commands:
     description: Toggle flyboost
   oogabooga:
     description: Oogabooga command
+  log:
+    description: Log command

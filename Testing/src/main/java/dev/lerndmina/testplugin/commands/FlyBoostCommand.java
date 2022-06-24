@@ -1,7 +1,6 @@
 package dev.lerndmina.testplugin.commands;
 
 import dev.lerndmina.testplugin.Main;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -21,7 +20,7 @@ public class FlyBoostCommand extends AbstractCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        Player p = isPlayerAndHasPermission(sender, "", false);
+        Player p = isPlayerAndHasPermission(sender, "wild.command.flyboost", false);
         String usage = "Usage >> /flyboost [on|true|enable|toggle|off|false|disable]";
         if (p != null) { // Execute the command and run this code.
             if (args.length == 0 || (args.length == 1 && listCompare(args[0],"toggle"))){
