@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="test:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bb7ce5a4-c140-4b9a-b49d-2a3a9a1102bf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../MailPlugin/src/main/java/dev/lerndmina/mailplugin/commands/PostCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/ItemBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailPlugin/src/main/java/dev/lerndmina/mailplugin/MailPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailPlugin/src/main/java/dev/lerndmina/mailplugin/MailPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/AbstractHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/AbstractCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/BookCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/BookCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/DebugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/DebugCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FireworkCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FireworkCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyBoostCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyBoostCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FruitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FruitCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/GiveElytraCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/GiveElytraCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/HealCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/HealCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/LogCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/LogCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/MenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/MenuCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/OogaBoogaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/OogaBoogaCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/PunishCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/PunishCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/TemplateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/TemplateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/VanishCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/VanishCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/PrivateMessageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/PrivateMessageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/ReplyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/ReplyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/AbstractEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ChatToggleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ChatToggleListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/CommandLogEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/CommandLogEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ElytraFallListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ElytraFallListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FireworkListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FireworkListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FlyBoostListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FlyBoostListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/JoinLeaveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/JoinLeaveListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/MenuListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/PunishMutedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/PunishMutedListener.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/ItemBuilder.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2AvdAkmrYu83suxkA6ZufFtNBaQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wild/Documents/GitHub/Java-Plugin-Dev/Testing&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dev.lerndmina.testplugin.commands" />
+      <recent name="dev.lerndmina.testplugin.events" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Build &amp; Run" type="JarApplication">
+      <option name="JAR_PATH" value="$USER_HOME$/Minecraft Testing Server/server.jar" />
+      <option name="VM_PARAMETERS" value="-Xms2000M -Xmx2000M -Dfile.encoding=UTF-8 -D" />
+      <option name="PROGRAM_PARAMETERS" value="nogui" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Minecraft Testing Server" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="test:jar" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="JarApplication">
+      <option name="JAR_PATH" value="$USER_HOME$/Minecraft Testing Server/server.jar" />
+      <option name="VM_PARAMETERS" value="-Xms2000M -Xmx2000M -Dfile.encoding=UTF-8 -D" />
+      <option name="PROGRAM_PARAMETERS" value="nogui" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Minecraft Testing Server" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Java Scratch">
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bb7ce5a4-c140-4b9a-b49d-2a3a9a1102bf" name="Changes" comment="" />
+      <created>1655893852714</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655893852714</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="org.bukkit.command.CommandException" package="org.bukkit.command" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
