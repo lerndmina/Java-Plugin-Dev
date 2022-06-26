@@ -15,21 +15,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
-import java.util.logging.Filter;
-import java.util.logging.LogRecord;
 
 
-public final class Main extends JavaPlugin implements Listener, Filter {
+public final class Main extends JavaPlugin implements Listener {
 
     private HashMap<UUID, UUID> recentMessages;
 
-    @Override
-    public boolean isLoggable(LogRecord record) {
-        if (record.getMessage().equals("oogabooga")) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public void onEnable() {
@@ -44,6 +35,8 @@ public final class Main extends JavaPlugin implements Listener, Filter {
         Bukkit.getPluginManager().registerEvents(new FlyBoostListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PunishMutedListener(this), this);
         Bukkit.getPluginManager().registerEvents(new CommandLogEvent(this), this);
+//        Bukkit.getPluginManager().registerEvents(new HiddenCommandsListener(this), this);
+        // This is disabled and was just a test.
 
         // Register commands
         getCommand("heal").setExecutor(new HealCommand(this));

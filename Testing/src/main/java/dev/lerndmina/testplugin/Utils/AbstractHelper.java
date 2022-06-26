@@ -58,7 +58,7 @@ public abstract class AbstractHelper {
             return true;
         } else { // If player doesn't have permission return null
             sendMessage(player, main.getConfig().getString("no-permission"));
-            sendMessage(player, "&cpermission required &r>> &c" + permission);
+            sendCleanMessage(player, "&cpermission required &r>> &c" + permission);
             return false;
         }
     }
@@ -78,7 +78,6 @@ public abstract class AbstractHelper {
     public void debugPlayerMessage(Player p, String message) {
         if (main.debug) {
             p.sendMessage(parseColor("&c&lDEBUG &4&l>> &c" + message));
-            sendConsoleInfo("&c&lDEBUG &4&l>> &c" + message);
         }
     }
 

@@ -10,37 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb7ce5a4-c140-4b9a-b49d-2a3a9a1102bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../MailPlugin/src/main/java/dev/lerndmina/mailplugin/commands/PostCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/ItemBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailPlugin/src/main/java/dev/lerndmina/mailplugin/MailPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailPlugin/src/main/java/dev/lerndmina/mailplugin/MailPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/AbstractHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/HiddenCommandsListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/AbstractCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/BookCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/BookCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/DebugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/DebugCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FireworkCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FireworkCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyBoostCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyBoostCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FlyCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FruitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/FruitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/GiveElytraCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/GiveElytraCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/HealCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/HealCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/LogCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/LogCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/MenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/MenuCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/OogaBoogaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/OogaBoogaCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/PunishCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/PunishCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/TemplateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/TemplateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/VanishCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/VanishCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/PrivateMessageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/PrivateMessageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/ReplyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/commands/privateMessage/ReplyCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/AbstractEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ChatToggleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ChatToggleListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/CommandLogEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/CommandLogEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ElytraFallListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/ElytraFallListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FireworkListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FireworkListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FlyBoostListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/FlyBoostListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/JoinLeaveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/JoinLeaveListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/MenuListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/PunishMutedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/PunishMutedListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +78,7 @@
       <option name="JAR_PATH" value="$USER_HOME$/Minecraft Testing Server/server.jar" />
       <option name="VM_PARAMETERS" value="-Xms2000M -Xmx2000M -Dfile.encoding=UTF-8 -D" />
       <option name="PROGRAM_PARAMETERS" value="nogui" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Minecraft Testing Server" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Wild\Minecraft Testing Server" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="BuildArtifacts" enabled="true">
