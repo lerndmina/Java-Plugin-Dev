@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb7ce5a4-c140-4b9a-b49d-2a3a9a1102bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/events/HiddenCommandsListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/lerndmina/testplugin/Utils/AbstractHelper.java" afterDir="false" />
-    </list>
+    <list default="true" id="bb7ce5a4-c140-4b9a-b49d-2a3a9a1102bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +73,7 @@
       <option name="JAR_PATH" value="$USER_HOME$/Minecraft Testing Server/server.jar" />
       <option name="VM_PARAMETERS" value="-Xms2000M -Xmx2000M -Dfile.encoding=UTF-8 -D" />
       <option name="PROGRAM_PARAMETERS" value="nogui" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Wild\Minecraft Testing Server" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Minecraft Testing Server" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="BuildArtifacts" enabled="true">
