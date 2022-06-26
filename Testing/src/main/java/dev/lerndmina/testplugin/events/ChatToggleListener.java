@@ -1,6 +1,7 @@
 package dev.lerndmina.testplugin.events;
 
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractEvent;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -8,11 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-public class ChatToggleListener extends AbstractEvent{
+public class ChatToggleListener extends AbstractEvent {
 
 
     public ChatToggleListener(Main main) {

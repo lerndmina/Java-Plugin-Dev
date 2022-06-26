@@ -1,6 +1,7 @@
 package dev.lerndmina.testplugin.commands;
 
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractCommand;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

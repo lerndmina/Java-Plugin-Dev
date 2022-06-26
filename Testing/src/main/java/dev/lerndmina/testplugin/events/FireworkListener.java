@@ -1,7 +1,7 @@
 package dev.lerndmina.testplugin.events;
 
-import dev.lerndmina.testplugin.AbstractHelper;
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractEvent;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.entity.Firework;

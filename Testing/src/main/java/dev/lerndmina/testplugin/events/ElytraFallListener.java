@@ -1,7 +1,7 @@
 package dev.lerndmina.testplugin.events;
 
-import dev.lerndmina.testplugin.AbstractHelper;
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractEvent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class ElytraFallListener extends AbstractEvent{
+public class ElytraFallListener extends AbstractEvent {
     public ElytraFallListener(Main main) {
         super(main); // Import main for use in this class
         // Define main class

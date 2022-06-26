@@ -1,7 +1,7 @@
 package dev.lerndmina.testplugin.commands.privateMessage;
 
 import dev.lerndmina.testplugin.Main;
-import dev.lerndmina.testplugin.commands.AbstractCommand;
+import dev.lerndmina.testplugin.Utils.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

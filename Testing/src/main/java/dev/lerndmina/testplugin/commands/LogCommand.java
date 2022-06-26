@@ -2,6 +2,7 @@ package dev.lerndmina.testplugin.commands;
 
 import com.google.common.collect.Lists;
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

@@ -1,6 +1,6 @@
-package dev.lerndmina.testplugin.commands;
+package dev.lerndmina.testplugin.Utils;
 
-import dev.lerndmina.testplugin.AbstractHelper;
+import dev.lerndmina.testplugin.Utils.AbstractHelper;
 import dev.lerndmina.testplugin.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

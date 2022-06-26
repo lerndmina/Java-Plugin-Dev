@@ -1,8 +1,8 @@
 package dev.lerndmina.testplugin.events;
 
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractEvent;
 import io.papermc.paper.event.player.AsyncChatEvent;
-import io.papermc.paper.event.player.ChatEvent;
 import org.bukkit.event.EventHandler;
 
 public class PunishMutedListener extends AbstractEvent {

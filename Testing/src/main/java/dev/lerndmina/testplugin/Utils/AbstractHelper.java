@@ -1,5 +1,6 @@
-package dev.lerndmina.testplugin;
+package dev.lerndmina.testplugin.Utils;
 
+import dev.lerndmina.testplugin.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

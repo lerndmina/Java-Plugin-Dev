@@ -2,12 +2,12 @@ package dev.lerndmina.testplugin.events;
 
 
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
 
-public class JoinLeaveListener extends AbstractEvent{
+public class JoinLeaveListener extends AbstractEvent {
 
 
     public JoinLeaveListener(Main main) {

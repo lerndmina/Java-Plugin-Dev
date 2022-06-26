@@ -1,6 +1,7 @@
 package dev.lerndmina.testplugin.events;
 
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
@@ -8,10 +9,12 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import java.util.regex.Pattern;
 
 
-public class CommandLogEvent extends AbstractEvent{
+public class CommandLogEvent extends AbstractEvent {
     public CommandLogEvent(Main main) {
         super(main);
     }
+
+    int counter = 0;
 
     @EventHandler
     public void onCommandSend(PlayerCommandPreprocessEvent e) {
@@ -34,6 +37,12 @@ public class CommandLogEvent extends AbstractEvent{
             main.cmdLog.remove(0);
         }
 
+        if (counter <= 5){
+            counter++;
+            return;
+        }
+
         main.saveList(main.cmdLog, "cmdLog.json");
+        counter = 0;
     }
 }

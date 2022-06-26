@@ -1,5 +1,7 @@
 package dev.lerndmina.testplugin.commands;
 
+import dev.lerndmina.testplugin.Utils.AbstractCommand;
+import dev.lerndmina.testplugin.Utils.ItemBuilder;
 import dev.lerndmina.testplugin.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -12,7 +14,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,6 +41,17 @@ public class MenuCommand extends AbstractCommand {
 
         String invTitle = parseColor("&6&lMain Menu");
         Inventory menu = Bukkit.createInventory(player, menuSize(menurows), invTitle);
+
+        ItemStack diamondSword = new ItemBuilder(Material.DIAMOND_SWORD)
+                .name(parseColor("&6&lDiamond Sword"))
+                .lore("&7Click to equip")
+                .lore("&7this item")
+                .lore("&7in your hand")
+                .amount(1)
+                .make();
+        player.getInventory().addItem(diamondSword);
+
+        addButtonToUI(menu, diamondSword, 1, menuPositionUsed);
 
         // Close menu
         ItemStack close = new ItemStack(Material.BARRIER);

@@ -118,6 +118,8 @@ public final class Main extends JavaPlugin implements Listener, Filter {
 
 //        saveList(convertToStringList(muted), "muted.json");
 
+        saveList(cmdLog, "cmdLog.json");
+
         getLogger().info("Plugin unloaded not pog");
     }
 

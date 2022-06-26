@@ -1,6 +1,7 @@
 package dev.lerndmina.testplugin.commands;
 
 import dev.lerndmina.testplugin.Main;
+import dev.lerndmina.testplugin.Utils.AbstractCommand;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -11,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 public class PunishCommand extends AbstractCommand {
 
