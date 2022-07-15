@@ -35,8 +35,6 @@ public final class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new FlyBoostListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PunishMutedListener(this), this);
         Bukkit.getPluginManager().registerEvents(new CommandLogEvent(this), this);
-//        Bukkit.getPluginManager().registerEvents(new HiddenCommandsListener(this), this);
-        // This is disabled and was just a test.
 
         // Register commands
         getCommand("heal").setExecutor(new HealCommand(this));
@@ -87,6 +85,9 @@ public final class Main extends JavaPlugin implements Listener {
 
         getCommand("log").setExecutor(new LogCommand(this));
         getCommand("log").setTabCompleter(new LogCommand(this));
+
+        getCommand("map").setExecutor(new GiveCustomMapCommand(this));
+        getCommand("map").setTabCompleter(new GiveCustomMapCommand(this));
 
 
         // Initialise storage
@@ -211,6 +212,9 @@ public final class Main extends JavaPlugin implements Listener {
 
     // list of players with flight enabled
     public ArrayList<UUID> flightEnabled = new ArrayList<>();
+
+    // list of players about to generate a map
+    public ArrayList<UUID> mapCache = new ArrayList<>();
 
     // list of muted players
     public ArrayList<UUID> muted = new ArrayList<>();

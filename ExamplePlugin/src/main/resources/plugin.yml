@@ -1,0 +1,7 @@
+name: Exampleplugin
+version: '${project.version}'
+main: dev.lerndmina.exampleplugin.Exampleplugin
+api-version: 1.19
+authors: [ lerndmina ]
+description: Woah a plugin?
+website: lerndmina.dev
