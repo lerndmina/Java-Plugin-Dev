@@ -24,6 +24,7 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+
         getLogger().info("Plugin loaded pog");
 
         // Register Events
@@ -208,7 +209,7 @@ public final class Main extends JavaPlugin implements Listener {
     public boolean fireworkEnabled = false; // Global firework toggle
 
     // TODO: convert to list so that each player can have their own toggle
-    public boolean debug = false;
+    public boolean debug = true;
 
     // list of players with flight enabled
     public ArrayList<UUID> flightEnabled = new ArrayList<>();

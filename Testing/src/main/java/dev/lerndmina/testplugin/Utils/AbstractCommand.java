@@ -1,6 +1,5 @@
 package dev.lerndmina.testplugin.Utils;
 
-import dev.lerndmina.testplugin.Utils.AbstractHelper;
 import dev.lerndmina.testplugin.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,6 +24,7 @@ public abstract class AbstractCommand extends AbstractHelper implements CommandE
     @Override
     public abstract boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args);
 
+
     public boolean isLNotListed(Player player) {
         return (!isListed(player));
     }
@@ -47,8 +47,9 @@ public abstract class AbstractCommand extends AbstractHelper implements CommandE
     // Check for a player
     public Player isPlayerAndHasPermission(Object sender, String permission, Boolean allowConsole) {
         if (sender instanceof Player) { // If sender is player check for permission
-            if (permission.equals("") || (hasPermission((Player) sender, permission))) {// If there is no permission return the player
-                return (Player) sender;
+            Player player = (Player) sender;
+            if (permission.equals("") || (hasPermission(player, permission))) {
+                return player;
             } else {
                 return null;
             }
@@ -59,4 +60,7 @@ public abstract class AbstractCommand extends AbstractHelper implements CommandE
             return null;
         }
     }
+
+    // Command cooldown checking
+
 }
