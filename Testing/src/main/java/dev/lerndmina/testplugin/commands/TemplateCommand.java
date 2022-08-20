@@ -30,9 +30,10 @@ public class TemplateCommand extends AbstractCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         Player p = isPlayerAndHasPermission(sender, "wild.command.REPLACEME", false);
+        MessageHandler msg = new MessageHandler();
         if (p != null) {
             // Command code here
-            sendMessage(p, stringFromArgs(args,0));
+            msg.player(p, "Uh, I don't know what you're trying to do. I think it's working...");
         }
         return false;
     }
