@@ -75,6 +75,13 @@ public abstract class AbstractHelper {
         return (ChatColor.translateAlternateColorCodes('&', content));
     }
 
+
+    public class MessageHandler {
+        public void player (Player player, String message) {
+            player.sendMessage(parseColor(main.getConfig().getString("prefix") + message));
+        }
+    }
+
     public void debugPlayerMessage(Player p, String message) {
         if (main.debug) {
             p.sendMessage(parseColor("&c&lDEBUG &4&l>> &c" + message));
