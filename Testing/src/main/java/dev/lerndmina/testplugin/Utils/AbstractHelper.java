@@ -85,6 +85,8 @@ public abstract class AbstractHelper {
         player.sendMessage(parseColor(main.getConfig().getString("prefix") + message));
     }
 
+    
+
     public void sendCleanMessage(Player player, String message) {
         player.sendMessage(parseColor(message));
     }
