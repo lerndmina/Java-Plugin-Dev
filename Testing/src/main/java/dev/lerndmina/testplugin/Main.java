@@ -1,6 +1,7 @@
 package dev.lerndmina.testplugin;
 
 import com.google.gson.Gson;
+import dev.lerndmina.testplugin.Utils.Database;
 import dev.lerndmina.testplugin.commands.*;
 import dev.lerndmina.testplugin.commands.privateMessage.PrivateMessageCommand;
 import dev.lerndmina.testplugin.commands.privateMessage.ReplyCommand;
@@ -12,6 +13,8 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -20,12 +23,37 @@ import java.util.UUID;
 public final class Main extends JavaPlugin implements Listener {
 
     private HashMap<UUID, UUID> recentMessages;
-
+    private Database database;
 
     @Override
     public void onEnable() {
 
-        getLogger().info("Plugin loaded pog");
+        // Create config if needed file and copy defaults
+        saveDefaultConfig();
+
+        String dbHost = getConfig().getString("mysql.host");
+        int dbPort = getConfig().getInt("mysql.port");
+        String dbDatabase = getConfig().getString("mysql.database");
+        String dbUser = getConfig().getString("mysql.username");
+        String dbPassword = getConfig().getString("mysql.password");
+
+        database = new Database();
+        try {
+            database.connect(dbHost,dbPort,dbDatabase,dbUser,dbPassword);
+
+            PreparedStatement ps = database.getConnection().prepareStatement("INSERT INTO table (C1,C2,C3) VALUES (?,?,?);");
+            ps.setString(1, "Banana");
+
+        } catch (SQLException e) {
+            getLogger().severe("Database connection FAILED, check config.yml");
+            throw new RuntimeException(e);
+        }
+        if (database.isConnected()){
+            getLogger().info("Database connected @ " + dbHost + ":" + dbPort);
+        } else{
+            getLogger().severe("Database connection FAILED, check config.yml");
+            getLogger().warning("The DB Connection failed but did not throw an error. HMM");
+        }
 
         // Register Events
         Bukkit.getPluginManager().registerEvents(new JoinLeaveListener(this), this);
@@ -36,6 +64,8 @@ public final class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new FlyBoostListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PunishMutedListener(this), this);
         Bukkit.getPluginManager().registerEvents(new CommandLogEvent(this), this);
+        Bukkit.getPluginManager().registerEvents(new HopperFilterListener(this), this);
+
 
         // Register commands
         getCommand("heal").setExecutor(new HealCommand(this));
@@ -102,8 +132,8 @@ public final class Main extends JavaPlugin implements Listener {
 
         muted = loadUUIDListFromFile("muted.json", "Muted Players");
 
-        // Create config if needed file and copy defaults
-        saveDefaultConfig();
+        // Final loaded message
+        getLogger().info("Plugin loaded pog");
     }
 
     @Override
@@ -114,6 +144,8 @@ public final class Main extends JavaPlugin implements Listener {
 //        saveList(convertToStringList(muted), "muted.json");
 
         saveList(cmdLog, "cmdLog.json");
+
+        database.disconnect();
 
         getLogger().info("Plugin unloaded not pog");
     }

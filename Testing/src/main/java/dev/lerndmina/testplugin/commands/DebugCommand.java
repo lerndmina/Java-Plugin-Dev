@@ -14,7 +14,7 @@ public class DebugCommand extends AbstractCommand {
 
     public DebugCommand(Main main) { // Import main for use in this class
         super(main);
-        sendConsoleInfo("Debug instance loaded " + this.toString() + " main: " + main.toString() + " Main.Debug: " + main.debug);
+//        sendConsoleInfo("Debug instance loaded " + this.toString() + " main: " + main.toString() + " Main.Debug: " + main.debug);
     }
 
     @Override

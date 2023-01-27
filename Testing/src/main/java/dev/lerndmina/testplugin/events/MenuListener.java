@@ -21,7 +21,7 @@ public class MenuListener extends AbstractEvent {
 
         Player player = (Player) e.getWhoClicked();
 
-        debugPlayerMessage(player, "Event triggered");
+//        debugPlayerMessage(player, "Event triggered");
 
         if ((ChatColor.translateAlternateColorCodes('&', e.getView().getTitle()).equals(parseColor("&6&lMain Menu"))) // !!! This is so dumb !!!
         && (e.getCurrentItem() != null)){

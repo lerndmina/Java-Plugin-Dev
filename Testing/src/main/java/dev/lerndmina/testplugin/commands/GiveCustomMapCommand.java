@@ -39,7 +39,7 @@ public class GiveCustomMapCommand extends AbstractCommand {
                 @Override
                 public void render(@NotNull MapView mapView, @NotNull MapCanvas mapCanvas, @NotNull Player player) {
                     try {
-                        BufferedImage image = ImageIO.read(new URL("https://i.lerndmina.dev/images/png/MKF5x.png"));
+                        BufferedImage image = ImageIO.read(new URL("https://i.lerndmina.dev/images/png/JhCom.png"));
                         mapCanvas.drawImage(0,0,image);
                     } catch (Exception e) {
                         e.printStackTrace();
