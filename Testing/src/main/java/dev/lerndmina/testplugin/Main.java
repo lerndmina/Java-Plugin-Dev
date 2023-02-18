@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 
-public final class Main extends JavaPlugin implements Listener {
+    public final class Main extends JavaPlugin implements Listener {
 
     private HashMap<UUID, UUID> recentMessages;
     private Database database;

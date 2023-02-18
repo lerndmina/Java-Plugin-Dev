@@ -1,0 +1,6 @@
+#! HERE'S THE CONFIG YES
+
+prefix: "&e[Thalwyrn]"
+
+messagesToBlock:
+  - "[MMOItems] Successfully gave"
