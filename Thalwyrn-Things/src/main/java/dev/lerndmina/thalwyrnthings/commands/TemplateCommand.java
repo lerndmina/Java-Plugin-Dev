@@ -23,6 +23,7 @@ public class TemplateCommand extends Command {
     @Override // Handle command if run by player, Allows perm checks.
     public void executePlayer(Player player, String[] args) {
         playerMsg(player,"This command worlked!");
+        playerMsg(player,this.getUsage());
     }
 
     @Override // This only runs if requirePlayer is false

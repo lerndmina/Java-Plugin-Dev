@@ -1,5 +1,5 @@
 package dev.lerndmina.thalwyrnthings;
-import dev.lerndmina.thalwyrnthings.Utils.LogFilter;
+import dev.lerndmina.thalwyrnthings.commands.TemplateCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,8 +11,7 @@ public final class Main extends JavaPlugin implements Listener {
         // Set the default config ;)
         saveDefaultConfig();
 
-        LogFilter filter = new LogFilter(this);
-        filter.registerFilter();
+        new TemplateCommand(this);
 
 
 
