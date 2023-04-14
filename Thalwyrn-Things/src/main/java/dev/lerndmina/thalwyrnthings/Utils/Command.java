@@ -15,7 +15,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class Command extends BukkitCommand{
-    protected final Main main; // Define main class
+    protected final Main main;
+    StringHelpers sh = new StringHelpers();
 
     boolean isPlayerNeeded;
     String commandPermission;
@@ -51,12 +52,12 @@ public abstract class Command extends BukkitCommand{
             if (player.hasPermission(commandPermission) || commandPermission.equals("")){
                 executePlayer(player,args);
             } else {
-                playerMsg(player, "&cYou lack the permission for this command. '" + commandPermission + "'");
+                StringHelpers.playerMsg(player, "&cYou lack the permission for this command. '" + commandPermission + "'");
             }
         } else if (!isPlayerNeeded) {
             executeConsole(sender,args);
         } else {
-            consoleMsg("&cThis command must be ran by a player!", Main.consoleTypes.WARN) ;
+            StringHelpers.consoleMsg("&cThis command must be ran by a player!", Main.consoleTypes.WARN) ;
         }
         return true;
     }
@@ -82,7 +83,7 @@ public abstract class Command extends BukkitCommand{
 
     // Grab things from the config file
     public String configString(String path) {
-        return parseColor(main.getConfig().getString(path));
+        return StringHelpers.parseColor(main.getConfig().getString(path));
     }
 
     public Integer configInt(String path) {
@@ -108,35 +109,9 @@ public abstract class Command extends BukkitCommand{
         for (int index = arrPos; index < arr.length; index++) {
             builder.append(arr[index]).append(" ");
         }
-        return parseColor(builder.toString());
+        return StringHelpers.parseColor(builder.toString());
     }
 
-    public void playerMsg(Player player, String message) {
-        player.sendMessage(parseColor(main.getConfig().getString("prefix") + "&f " + message));
-    }
-    public void playerClean(Player player, String message) {
-        player.sendMessage(parseColor(message));
-    }
-
-    public void consoleMsg(String message, Main.consoleTypes type){
-        if(type == Main.consoleTypes.INFO){
-            main.getLogger().info(parseColor(message));
-        } else if (type == Main.consoleTypes.WARN) {
-            main.getLogger().warning(parseColor(message));
-        } else if (type == Main.consoleTypes.SEVERE) {
-            main.getLogger().severe(parseColor(message));
-        }
-    }
-
-    public void debugPlayerMsg(Player p, String message) {
-        if (main.debug) {
-            p.sendMessage(parseColor("&c&lDEBUG &4&l>> &c" + message));
-        }
-    }
-
-    public static String parseColor(String content) {
-        return (ChatColor.translateAlternateColorCodes('&', content));
-    }
 
     // !!! ITEM CHECKS !!!
     public boolean hasItemInHand(Player p, Material material) {

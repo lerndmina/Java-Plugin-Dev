@@ -4,7 +4,11 @@ import dev.lerndmina.thalwyrnthings.Main;
 import dev.lerndmina.thalwyrnthings.Utils.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Collections;
 import java.util.List;
+
+import static dev.lerndmina.thalwyrnthings.Utils.StringHelpers.*;
 
 public class TemplateCommand extends Command {
 
@@ -22,7 +26,7 @@ public class TemplateCommand extends Command {
 
     @Override // Handle command if run by player, Allows perm checks.
     public void executePlayer(Player player, String[] args) {
-        playerMsg(player,"This command worlked!");
+        playerMsg(player,"&#382dfc This command worked!");
     }
 
     @Override // This only runs if requirePlayer is false
@@ -31,6 +35,6 @@ public class TemplateCommand extends Command {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, String[] args) {
-        return null;
+        return Collections.emptyList();
     }
 }

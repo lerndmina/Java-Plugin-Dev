@@ -5,3 +5,5 @@ api-version: 1.19
 authors: [ Wild ]
 description: Some things for my server Thalwyrn
 website: https://lerndmina.dev
+depend:
+  - PlaceholderAPI

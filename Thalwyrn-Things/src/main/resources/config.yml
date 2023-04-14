@@ -1,6 +1,16 @@
-#! HERE'S THE CONFIG YES
+#! Debug mode DON'T USE UNLESS YOU WANT SPAM
+debug-toggle: true
 
 prefix: "&e[Thalwyrn]"
 
+newthing: "text"
+
 messagesToBlock:
   - "[MMOItems] Successfully gave"
+
+scoreboard-title: F
+scoreboard-lines:
+  - AA
+  - bb
+  - cc
+  - dd
