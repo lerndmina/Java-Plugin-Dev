@@ -7,6 +7,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Parrot;
 import org.bukkit.entity.Player;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,6 +29,15 @@ public class parrotGlue extends Command {
 
     @Override // Handle command if run by player, Allows perm checks.
     public void executePlayer(Player player, String[] args) {
+        // First check if they have parrot glue already
+        UUID uuid = player.getUniqueId();
+
+        if (main.parrotList.contains(uuid)){
+            main.parrotList.remove(uuid);
+            playerMsg(player, "Parrots are now free to leave.");
+        }
+
+
         Entity shoulderEntityLeft = player.getShoulderEntityLeft();
         Entity shoulderEntityRight = player.getShoulderEntityRight();
         if (shoulderEntityLeft == null && shoulderEntityRight == null){
@@ -49,18 +59,8 @@ public class parrotGlue extends Command {
                 playerMsg(player, "The right parrot is not yours.");
             }
         }
-        UUID uuid = player.getUniqueId();
-
-        if (main.parrotList.contains(uuid)){
-            main.parrotList.remove(uuid);
-            playerMsg(player, "Parrots are now free to leave.");
-        } else {
-            main.parrotList.add(uuid);
-            playerMsg(player,"You attached some really strong parrot glue.");
-        }
-
-
-
+        main.parrotList.add(uuid);
+        playerMsg(player,"You attached some really strong parrot glue.");
     }
 
     boolean isNotOwner(Parrot parrot, Player player){
@@ -73,6 +73,6 @@ public class parrotGlue extends Command {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, String[] args) {
-        return null;
+        return Collections.emptyList();
     }
 }

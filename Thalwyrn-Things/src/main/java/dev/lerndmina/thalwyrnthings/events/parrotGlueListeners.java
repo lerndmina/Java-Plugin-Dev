@@ -1,7 +1,7 @@
 package dev.lerndmina.thalwyrnthings.events;
 
 import dev.lerndmina.thalwyrnthings.Main;
-import org.bukkit.Location;
+import static dev.lerndmina.thalwyrnthings.Utils.StringHelpers.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -46,9 +46,13 @@ public class parrotGlueListeners implements Listener {
         }
         Player player = event.getPlayer();
         Main main = Main.getInstance();
+        debugPlayerMsg(player, "You are sneaking");
         if (!main.parrotList.contains(player.getUniqueId())){
             return;
         }
+        debugPlayerMsg(player, "You are sneaking and have parrot glue");
+        main.parrotList.remove(player.getUniqueId());
+        debugPlayerMsg(player, "Temporaraly removed parrot glue to allow parrot to spawn on the ground");
         Parrot parrot = (Parrot)player.getShoulderEntityLeft();
         if (parrot != null) {
             parrot.spawnAt(player.getLocation());
@@ -59,5 +63,6 @@ public class parrotGlueListeners implements Listener {
             parrot.spawnAt(player.getLocation());
             player.setShoulderEntityRight(null);
         }
+        main.parrotList.add(player.getUniqueId());
     }
 }
