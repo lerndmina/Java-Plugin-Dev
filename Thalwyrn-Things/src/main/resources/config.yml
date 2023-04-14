@@ -1,16 +1,38 @@
-#! Debug mode DON'T USE UNLESS YOU WANT SPAM
-debug-toggle: true
 
+#   ________  __                  __
+#  |        \|  \                |  \
+#   \$$$$$$$$| $$____    ______  | $$ __   __   __  __    __  __    __   ______   _______
+#     | $$   | $$    \  |      \ | $$|  \ |  \ |  \|  \  |  \|  \  |  \ /      \ |       \
+#     | $$   | $$$$$$$\  \$$$$$$\| $$| $$ | $$ | $$| $$  | $$| $$  | $$|  $$$$$$\| $$$$$$$\
+#     | $$   | $$  | $$ /      $$| $$| $$ | $$ | $$| $$  | $$| $$  | $$| $$   \$$| $$  | $$
+#     | $$   | $$  | $$|  $$$$$$$| $$| $$_/ $$_/ $$| $$__/ $$| $$__/ $$| $$      | $$  | $$
+#     | $$   | $$  | $$ \$$    $$| $$ \$$   $$   $$ \$$    $$ \$$    $$| $$      | $$  | $$
+#      \$$    \$$   \$$  \$$$$$$$ \$$  \$$$$$\$$$$   \$$$$$$  _\$$$$$$$ \$$       \$$   \$$
+#                                                            |  \__| $$
+#                                                             \$$    $$
+#                                                              \$$$$$$
+
+## Welcome to the Thalwyrn config file!
+## This file is used to configure the plugin to your liking.
+## If you find yourself in possession of this plugin, that's surprising as I'm using it internally for my own server
+
+
+## Prefix for all plugin messages to the player.
 prefix: "&e[Thalwyrn]"
 
-newthing: "text"
+## Scoreboard configuration MAX 15 LINES, longer will truncate
+## If you want to disable the scoreboard, set enable-scoreboard to false
+enable-scoreboard: true
 
-messagesToBlock:
-  - "[MMOItems] Successfully gave"
-
+## Configure the scoreboard content here, colors & placeholders are supported
 scoreboard-title: F
 scoreboard-lines:
   - AA
   - bb
   - cc
   - dd
+
+
+#! Debug mode DON'T USE UNLESS YOU WANT SPAM IN YOUR CONSOLE AND PLAYER CHAT
+## False by default
+debug-toggle: false
