@@ -70,4 +70,10 @@ public class StringHelpers {
             p.sendMessage(StringHelpers.parseColor("&c&lDEBUG &4&l>> &c" + message));
         }
     }
+
+    public static void debugConsoleMsg(String message) {
+        if (Main.getInstance().debug) {
+            Main.getInstance().getLogger().warning("DEBUG >> " + message);
+        }
+    }
 }
