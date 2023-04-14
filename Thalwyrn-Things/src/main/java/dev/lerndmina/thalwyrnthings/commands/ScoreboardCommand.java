@@ -20,8 +20,8 @@ public class ScoreboardCommand extends Command {
                 main,
                 true,
                 "scoreboard",
-                "A test command woah",
-                "Put some usage here bro",
+                "Toggle your scoreboard",
+                "/scoreboard [on/off]",
                 "thalwyrn.commands.scoreboard",
                 new String[]{}
         );
@@ -45,7 +45,7 @@ public class ScoreboardCommand extends Command {
             main.scoreboardList.add(player.getUniqueId());
             playerMsg(player, "Scoreboard disabled.");
         } else {
-            playerMsg(player, "Invalid arguments.");
+            playerMsg(player, this.usageMessage);
             return;
         }
         ScoreboardListener.getListener().buildScoreboard(player);

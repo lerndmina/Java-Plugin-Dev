@@ -1,7 +1,9 @@
 package dev.lerndmina.thalwyrnthings;
+import com.tchristofferson.configupdater.ConfigUpdater;
 import dev.lerndmina.thalwyrnthings.Utils.JSONUtils;
-import dev.lerndmina.thalwyrnthings.Utils.LogFilter;
+import dev.lerndmina.thalwyrnthings.Utils.StringHelpers;
 import dev.lerndmina.thalwyrnthings.commands.ScoreboardCommand;
+import dev.lerndmina.thalwyrnthings.commands.SlapCommand;
 import dev.lerndmina.thalwyrnthings.commands.parrotGlue;
 import dev.lerndmina.thalwyrnthings.commands.TemplateCommand;
 import dev.lerndmina.thalwyrnthings.events.ScoreboardListener;
@@ -10,8 +12,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public final class Main extends JavaPlugin implements Listener {
@@ -26,18 +29,25 @@ public final class Main extends JavaPlugin implements Listener {
         instance = this;
         utils = new JSONUtils();
 
-        // Set the default config ;)
+        // Create and update the config
         saveDefaultConfig();
+        File configFile = new File(getDataFolder(), "config.yml");
 
-        LogFilter filter = new LogFilter(this);
-        filter.registerFilter();
+        try{
+            ConfigUpdater.update(this, "config.yml", configFile, new ArrayList<>());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        reloadConfig();
+        StringHelpers.consoleMsg("Config loaded.", consoleTypes.INFO);
+
 
         // Don't delete this retard. You'll forget
         // new CommandName(this);
         new TemplateCommand(this);
         new ScoreboardCommand(this);
         new parrotGlue(this);
-
+        new SlapCommand(this);
 
         this.getServer().getPluginManager().registerEvents(new parrotGlueListeners(), this);
         this.getServer().getPluginManager().registerEvents(new ScoreboardListener(), this);

@@ -40,6 +40,7 @@ public abstract class Command extends BukkitCommand{
             field.setAccessible(true);
             CommandMap map = (CommandMap) field.get(Bukkit.getServer());
             map.register(command, this);
+            StringHelpers.debugConsoleMsg("Registered command: " + command + " with usage: " + usageMessage);
         } catch (NoSuchFieldException | IllegalAccessException e){
             e.printStackTrace();
         }
