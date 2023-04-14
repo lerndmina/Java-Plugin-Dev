@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.lerndmina</groupId>
-    <artifactId>thalwyrnThings</artifactId>
+    <artifactId>ThalwyrnThings</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 

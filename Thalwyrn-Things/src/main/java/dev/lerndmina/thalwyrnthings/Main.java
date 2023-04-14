@@ -2,10 +2,7 @@ package dev.lerndmina.thalwyrnthings;
 import com.tchristofferson.configupdater.ConfigUpdater;
 import dev.lerndmina.thalwyrnthings.Utils.JSONUtils;
 import dev.lerndmina.thalwyrnthings.Utils.StringHelpers;
-import dev.lerndmina.thalwyrnthings.commands.ScoreboardCommand;
-import dev.lerndmina.thalwyrnthings.commands.SlapCommand;
-import dev.lerndmina.thalwyrnthings.commands.parrotGlue;
-import dev.lerndmina.thalwyrnthings.commands.TemplateCommand;
+import dev.lerndmina.thalwyrnthings.commands.*;
 import dev.lerndmina.thalwyrnthings.events.ScoreboardListener;
 import dev.lerndmina.thalwyrnthings.events.parrotGlueListeners;
 import org.bukkit.Bukkit;
@@ -57,7 +54,7 @@ public final class Main extends JavaPlugin implements Listener {
 
 
         parrotList = utils.loadUUIDListFromFile(parrotListFileName, "Parrot Glue UUIDs");
-        scoreboardList = utils.loadUUIDListFromFile(scoreboardListFile, "Scoreboard UUIDs");
+        scoreboardDisabledList = utils.loadUUIDListFromFile(scoreboardDisabledListFile, "Scoreboard UUIDs");
 
         Bukkit.getServer().getOnlinePlayers().stream().filter(player -> {
             ScoreboardListener.getListener().buildScoreboard(player);
@@ -69,7 +66,7 @@ public final class Main extends JavaPlugin implements Listener {
     public void onDisable() {
         // Plugin shutdown logic
         utils.saveList(utils.convertToStringList(parrotList), parrotListFileName);
-        utils.saveList(utils.convertToStringList(scoreboardList), scoreboardListFile);
+        utils.saveList(utils.convertToStringList(scoreboardDisabledList), scoreboardDisabledListFile);
 
         Bukkit.getServer().getOnlinePlayers().stream().filter(player -> {
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
@@ -82,8 +79,8 @@ public final class Main extends JavaPlugin implements Listener {
     public ArrayList<UUID> parrotList = new ArrayList<>();
     private String parrotListFileName = "parrotGlueList.json";
 
-    public ArrayList<UUID> scoreboardList = new ArrayList<>();
-    private String scoreboardListFile = "scoreboardList.json";
+    public ArrayList<UUID> scoreboardDisabledList = new ArrayList<>();
+    private String scoreboardDisabledListFile = "scoreboardList.json";
 
     public enum consoleTypes{
         INFO, WARN, SEVERE

@@ -2,8 +2,8 @@ package dev.lerndmina.thalwyrnthings.commands;
 
 import dev.lerndmina.thalwyrnthings.Main;
 import dev.lerndmina.thalwyrnthings.Utils.Command;
-import dev.lerndmina.thalwyrnthings.Utils.StringHelpers;
 import dev.lerndmina.thalwyrnthings.events.ScoreboardListener;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -31,19 +31,29 @@ public class ScoreboardCommand extends Command {
     @Override // Handle command if run by player, Allows perm checks.
     public void executePlayer(Player player, String[] args) {
         if (args.length == 0){
-            if(main.scoreboardList.contains(player.getUniqueId())){
-                main.scoreboardList.remove(player.getUniqueId());
+            if(main.scoreboardDisabledList.contains(player.getUniqueId())){
+                main.scoreboardDisabledList.remove(player.getUniqueId());
                 playerMsg(player, "Scoreboard enabled.");
             } else {
-                main.scoreboardList.add(player.getUniqueId());
+                main.scoreboardDisabledList.add(player.getUniqueId());
                 playerMsg(player, "Scoreboard disabled.");
             }
         } else if (args.length == 1 && args[0].equalsIgnoreCase("on")){
-            main.scoreboardList.remove(player.getUniqueId());
+            main.scoreboardDisabledList.remove(player.getUniqueId());
             playerMsg(player, "Scoreboard enabled.");
-        } else if (args.length == 1 && args[0].equalsIgnoreCase("off")){
-            main.scoreboardList.add(player.getUniqueId());
+        } else if (args.length == 1 && args[0].equalsIgnoreCase("off")) {
+            main.scoreboardDisabledList.add(player.getUniqueId());
             playerMsg(player, "Scoreboard disabled.");
+        } else if (args.length == 1 && args[0].equalsIgnoreCase("reload") && player.hasPermission("thalwyrn.commands.scoreboard.reload")) {
+            main.reloadConfig();
+            for (Player p : main.getServer().getOnlinePlayers()) {
+                if (!main.scoreboardDisabledList.contains(p.getUniqueId())) {
+                    p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+                    ScoreboardListener.getListener().buildScoreboard(p);
+                }
+            }
+            playerMsg(player, "Config reloaded.");
+            return;
         } else {
             playerMsg(player, this.usageMessage);
             return;
@@ -57,7 +67,9 @@ public class ScoreboardCommand extends Command {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, String[] args) {
-        if (args.length == 1){
+        if (args.length == 1 && sender.hasPermission("thalwyrn.commands.scoreboard.reload")){
+            return Arrays.asList("on", "off", "reload");
+        } else if (args.length == 1){
             return Arrays.asList("on", "off");
         }
         return Collections.emptyList();

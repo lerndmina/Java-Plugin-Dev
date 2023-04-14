@@ -22,7 +22,7 @@ prefix: "&e[Thalwyrn]"
 
 ## Scoreboard configuration MAX 15 LINES, longer will truncate
 ## If you want to disable the scoreboard, set enable-scoreboard to false
-enable-scoreboard: true
+enable-scoreboard: false
 
 ## Configure the scoreboard content here, colors & placeholders are supported
 scoreboard-title: F

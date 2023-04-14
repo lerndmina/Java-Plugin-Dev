@@ -5,14 +5,12 @@ import dev.lerndmina.thalwyrnthings.Utils.FastOfflinePlayer;
 import static dev.lerndmina.thalwyrnthings.Utils.StringHelpers.*;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -35,7 +33,10 @@ public class ScoreboardListener implements Listener {
 
     public void buildScoreboard(Player player) {
         Main main = Main.getInstance();
-        if (main.scoreboardList.contains(player.getUniqueId())){
+        if(!main.getConfig().getBoolean("enable-scoreboard")){
+            return;
+        }
+        if (main.scoreboardDisabledList.contains(player.getUniqueId())){
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
             return;
         }
@@ -76,12 +77,16 @@ public class ScoreboardListener implements Listener {
             String finalScoreboardTitle = scoreboardTitle;
             new BukkitRunnable(){
                 public void run(){
+                    if(!main.getConfig().getBoolean("enable-scoreboard")){
+                        this.cancel();
+                        return;
+                    }
                     if (!player.isOnline()){
                         this.cancel();
                         return;
                     }
 
-                    if(main.scoreboardList.contains(player.getUniqueId())){
+                    if(main.scoreboardDisabledList.contains(player.getUniqueId())){
                         consoleMsg("Somehow a player who has their scoreboard disabled, had it refresh", Main.consoleTypes.WARN);
                         this.cancel();
                         return;
