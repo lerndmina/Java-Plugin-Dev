@@ -44,9 +44,12 @@ public class parrotGlueListeners implements Listener {
         if(!event.isSneaking()){
             return;
         }
+        if (event.getPlayer().isFlying()){
+            return;
+        }
         Player player = event.getPlayer();
         Main main = Main.getInstance();
-        debugPlayerMsg(player, "You are sneaking");
+        debugPlayerMsg(player, "You are sneaking on the ground");
         if (!main.parrotList.contains(player.getUniqueId())){
             return;
         }

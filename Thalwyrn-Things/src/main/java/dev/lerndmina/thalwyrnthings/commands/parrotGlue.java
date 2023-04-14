@@ -35,6 +35,7 @@ public class parrotGlue extends Command {
         if (main.parrotList.contains(uuid)){
             main.parrotList.remove(uuid);
             playerMsg(player, "Parrots are now free to leave.");
+            return;
         }
 
 
