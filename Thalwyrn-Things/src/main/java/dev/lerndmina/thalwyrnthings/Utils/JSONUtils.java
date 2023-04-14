@@ -2,6 +2,7 @@ package dev.lerndmina.thalwyrnthings.Utils;
 
 import com.google.gson.Gson;
 import dev.lerndmina.thalwyrnthings.Main;
+import org.bukkit.util.StringUtil;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class JSONUtils {
             main.getLogger().info(uuidlist.size() + " " + friendlyName + " loaded!");
             return uuidlist;
         } else {
-            main.getLogger().info("0 " + friendlyName + " loaded!");
+            StringHelpers.debugConsoleMsg("No " + friendlyName + " found. Creating new list.");
             return new ArrayList<>();
         }
     }
