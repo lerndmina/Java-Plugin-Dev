@@ -18,19 +18,20 @@
 
 
 ## Prefix for all plugin messages to the player.
-prefix: "&e[Thalwyrn]"
+prefix: "<GRADIENT:ffdb3a>[Thalwyrn]</GRADIENT:f79035>"
 
 ## Scoreboard configuration MAX 15 LINES, longer will truncate
 ## If you want to disable the scoreboard, set enable-scoreboard to false
 enable-scoreboard: false
 
-## Configure the scoreboard content here, colors & placeholders are supported
-scoreboard-title: F
+## Configure the scoreboard content here, colors, hex colors, gradients & placeholders are supported.
+## We use the Iridium Colour API you can find more info here: https://github.com/Iridium-Development/IridiumColorAPI
+scoreboard-title: "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
 scoreboard-lines:
-  - AA
-  - bb
-  - cc
-  - dd
+  - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
+  - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
+  - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
+  - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
 
 
 #! Debug mode DON'T USE UNLESS YOU WANT SPAM IN YOUR CONSOLE AND PLAYER CHAT
