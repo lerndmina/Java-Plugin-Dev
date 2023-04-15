@@ -47,6 +47,7 @@ public final class Main extends JavaPlugin implements Listener {
         new parrotGlue(this);
         new SlapCommand(this);
         new GlideBoostToggle(this);
+        new ColourCommand(this);
 
         this.getServer().getPluginManager().registerEvents(new parrotGlueListeners(), this);
         this.getServer().getPluginManager().registerEvents(new ScoreboardListener(), this);
@@ -80,6 +81,9 @@ public final class Main extends JavaPlugin implements Listener {
         });
     }
 
+    public boolean placeholderCheck() {
+        return Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null;
+    }
     public boolean debug = this.getConfig().getBoolean("debug-toggle");
 
     public ArrayList<UUID> parrotList = new ArrayList<>();
