@@ -30,7 +30,6 @@ public abstract class Command extends BukkitCommand{
         this.setDescription(description);
         this.setUsage(usage);
         commandPermission = permission;
-//        this.setPermission(permission);
         noPermissionMessage = ("You don't have permission \"" + permission + "\"");
         isPlayerNeeded = requiresPlayer;
 
