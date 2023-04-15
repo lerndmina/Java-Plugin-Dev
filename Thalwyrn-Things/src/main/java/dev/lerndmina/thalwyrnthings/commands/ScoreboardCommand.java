@@ -45,6 +45,7 @@ public class ScoreboardCommand extends Command {
             main.scoreboardDisabledList.add(player.getUniqueId());
             playerMsg(player, "Scoreboard disabled.");
         } else if (args.length == 1 && args[0].equalsIgnoreCase("reload") && player.hasPermission("thalwyrn.commands.scoreboard.reload")) {
+            main.saveDefaultConfig();
             main.reloadConfig();
             for (Player p : main.getServer().getOnlinePlayers()) {
                 if (!main.scoreboardDisabledList.contains(p.getUniqueId())) {
