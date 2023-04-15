@@ -2,6 +2,7 @@ package dev.lerndmina.thalwyrnthings.commands;
 
 import dev.lerndmina.thalwyrnthings.Main;
 import dev.lerndmina.thalwyrnthings.Utils.Command;
+import static dev.lerndmina.thalwyrnthings.Utils.StringHelpers.*;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
