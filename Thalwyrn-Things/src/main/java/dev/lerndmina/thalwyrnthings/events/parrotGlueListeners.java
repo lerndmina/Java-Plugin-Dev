@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 public class parrotGlueListeners implements Listener {
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onCreatureSpawn(CreatureSpawnEvent event){
         if (event.getEntity().getType() != EntityType.PARROT){
             return;
@@ -39,12 +39,9 @@ public class parrotGlueListeners implements Listener {
         event.setCancelled(true);
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onPlayerSneak(PlayerToggleSneakEvent event){
-        if(!event.isSneaking()){
-            return;
-        }
-        if (event.getPlayer().isFlying()){
+        if(!event.isSneaking() || event.getPlayer().isFlying() || event.getPlayer().isGliding()){
             return;
         }
         Player player = event.getPlayer();

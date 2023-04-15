@@ -3,6 +3,7 @@ import com.tchristofferson.configupdater.ConfigUpdater;
 import dev.lerndmina.thalwyrnthings.Utils.JSONUtils;
 import dev.lerndmina.thalwyrnthings.Utils.StringHelpers;
 import dev.lerndmina.thalwyrnthings.commands.*;
+import dev.lerndmina.thalwyrnthings.events.ElytraBoostListener;
 import dev.lerndmina.thalwyrnthings.events.ScoreboardListener;
 import dev.lerndmina.thalwyrnthings.events.parrotGlueListeners;
 import org.bukkit.Bukkit;
@@ -45,9 +46,11 @@ public final class Main extends JavaPlugin implements Listener {
         new ScoreboardCommand(this);
         new parrotGlue(this);
         new SlapCommand(this);
+        new GlideBoostToggle(this);
 
         this.getServer().getPluginManager().registerEvents(new parrotGlueListeners(), this);
         this.getServer().getPluginManager().registerEvents(new ScoreboardListener(), this);
+        this.getServer().getPluginManager().registerEvents(new ElytraBoostListener(), this);
 
 
 
@@ -55,6 +58,7 @@ public final class Main extends JavaPlugin implements Listener {
 
         parrotList = utils.loadUUIDListFromFile(parrotListFileName, "Parrot Glue UUIDs");
         scoreboardDisabledList = utils.loadUUIDListFromFile(scoreboardDisabledListFile, "Scoreboard UUIDs");
+        glideBoostList = utils.loadUUIDListFromFile(glideBoostListFile, "Glide Boost UUIDs");
 
         Bukkit.getServer().getOnlinePlayers().stream().filter(player -> {
             ScoreboardListener.getListener().buildScoreboard(player);
@@ -67,6 +71,8 @@ public final class Main extends JavaPlugin implements Listener {
         // Plugin shutdown logic
         utils.saveList(utils.convertToStringList(parrotList), parrotListFileName);
         utils.saveList(utils.convertToStringList(scoreboardDisabledList), scoreboardDisabledListFile);
+        utils.saveList(utils.convertToStringList(glideBoostList), glideBoostListFile);
+
 
         Bukkit.getServer().getOnlinePlayers().stream().filter(player -> {
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
@@ -81,6 +87,10 @@ public final class Main extends JavaPlugin implements Listener {
 
     public ArrayList<UUID> scoreboardDisabledList = new ArrayList<>();
     private String scoreboardDisabledListFile = "scoreboardList.json";
+
+    public ArrayList<UUID> glideBoostList = new ArrayList<>();
+    public ArrayList<UUID> currentlyGlideBoosting = new ArrayList<>();
+    private String glideBoostListFile = "glideBoost.json";
 
     public enum consoleTypes{
         INFO, WARN, SEVERE
