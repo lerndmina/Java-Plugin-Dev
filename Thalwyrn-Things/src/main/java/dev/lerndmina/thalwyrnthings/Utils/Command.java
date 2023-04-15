@@ -2,7 +2,6 @@ package dev.lerndmina.thalwyrnthings.Utils;
 
 import dev.lerndmina.thalwyrnthings.Main;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
@@ -83,7 +82,7 @@ public abstract class Command extends BukkitCommand{
 
     // Grab things from the config file
     public String configString(String path) {
-        return StringHelpers.parseColor(main.getConfig().getString(path));
+        return StringHelpers.parseString(main.getConfig().getString(path));
     }
 
     public Integer configInt(String path) {
@@ -109,7 +108,7 @@ public abstract class Command extends BukkitCommand{
         for (int index = arrPos; index < arr.length; index++) {
             builder.append(arr[index]).append(" ");
         }
-        return StringHelpers.parseColor(builder.toString());
+        return StringHelpers.parseString(builder.toString());
     }
 
 
