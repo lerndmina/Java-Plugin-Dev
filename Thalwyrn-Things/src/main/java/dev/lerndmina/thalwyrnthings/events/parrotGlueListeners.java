@@ -41,7 +41,7 @@ public class parrotGlueListeners implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onPlayerSneak(PlayerToggleSneakEvent event){
-        if(!event.isSneaking() || event.getPlayer().isFlying() || event.getPlayer().isGliding()){
+        if(!event.isSneaking() || event.getPlayer().isGliding() || event.getPlayer().isFlying() || event.getPlayer().isSwimming() || event.getPlayer().isRiptiding() || event.getPlayer().isInsideVehicle()){
             return;
         }
         Player player = event.getPlayer();
