@@ -26,12 +26,15 @@ enable-scoreboard: false
 
 ## Configure the scoreboard content here, colors, hex colors, gradients & placeholders are supported.
 ## We use the Iridium Colour API you can find more info here: https://github.com/Iridium-Development/IridiumColorAPI
-scoreboard-title: "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
+scoreboard-title: "<GRADIENT:ffdb3a>[ThalwyrnThings Plugin]</GRADIENT:f79035>"
+## How often the scoreboard should update in ticks (20 ticks = 1 second)
+scoreboard-update-interval: 60
+
 scoreboard-lines:
   - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
-  - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
-  - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
-  - "<RAINBOW1>THIS IS A REALLY COOL Rainbow</RAINBOW>"
+  - "<SOLID:FF0080>Cool RGB SUPPORT"
+  - "<GRADIENT:2C08BA>Cool string with a gradient</GRADIENT:028A97>"
+  - "<RAINBOW100>THIS IS A REALLY DESATURATED Rainbow</RAINBOW>"
 
 
 #! Debug mode DON'T USE UNLESS YOU WANT SPAM IN YOUR CONSOLE AND PLAYER CHAT
