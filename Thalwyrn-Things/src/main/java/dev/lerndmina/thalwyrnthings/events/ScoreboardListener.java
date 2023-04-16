@@ -45,6 +45,13 @@ public class ScoreboardListener implements Listener {
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
             return;
         }
+        int updateInterval = main.getConfig().getInt("scoreboard-update-interval");
+        if (updateInterval == 0){
+            updateInterval = 20;
+            main.getLogger().warning("Please set your scoreboard-update-interval in the config. Defaulting to 20 ticks.");
+        }
+
+
         Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
         String scoreboardTitle = main.getConfig().getString("scoreboard-title");
         if (scoreboardTitle == null){
@@ -103,7 +110,7 @@ public class ScoreboardListener implements Listener {
                         team.prefix(LegacyComponentSerializer.legacy('§').deserialize(parseString(finalScoreboardContent.get(i), player)));
                     }
                 }
-            }.runTaskTimer(Main.getInstance(), 63, 63); // Delay in ticks 4 scoreboard refresh.
+            }.runTaskTimer(Main.getInstance(), updateInterval, updateInterval); // Delay in ticks 4 scoreboard refresh.
         } catch (Exception e){
             consoleMsg("Cringe runnable threw an error", Main.consoleTypes.SEVERE);
             consoleMsg(Arrays.toString(e.getStackTrace()), Main.consoleTypes.SEVERE);
