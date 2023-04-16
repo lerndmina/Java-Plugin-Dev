@@ -27,6 +27,17 @@ public final class Main extends JavaPlugin implements Listener {
         instance = this;
         utils = new JSONUtils();
 
+        if(!placeholderCheck()){
+            StringHelpers.consoleMsg("Soft Dependency PlaceholderAPI not found. The plugin will make no attempt to load placeholders.", consoleTypes.WARN);
+            return;
+        } else {
+            StringHelpers.consoleMsg("Soft Dependency PlaceholderAPI found. Placeholders will be parsed.", consoleTypes.INFO);
+        }
+        int scoreboardLength= StringHelpers.parseString(getConfig().getString("scoreboard-title")).length();
+        if (scoreboardLength > SCOREBOARD_MAX_TITLE_LENGTH){
+            StringHelpers.consoleMsg("Scoreboard title is too long. It will display but not be refreshed. Length: " + scoreboardLength, consoleTypes.WARN);
+        }
+
         // Create and update the config
         saveDefaultConfig();
         File configFile = new File(getDataFolder(), "config.yml");
@@ -81,6 +92,7 @@ public final class Main extends JavaPlugin implements Listener {
         });
     }
 
+    public final int SCOREBOARD_MAX_TITLE_LENGTH = 128;
     public boolean placeholderCheck() {
         return Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null;
     }

@@ -17,7 +17,9 @@ public class StringHelpers {
     }
 
     public static String parseString(String input, Player player){
-       input = PlaceholderAPI.setPlaceholders(player, input);
+        if (Main.getInstance().placeholderCheck()){
+            input = PlaceholderAPI.setPlaceholders(player, input);
+        }
         input = IridiumColorAPI.process(input);
         return input;
     }
