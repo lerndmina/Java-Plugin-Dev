@@ -44,17 +44,6 @@ public class ScoreboardCommand extends Command {
         } else if (args.length == 1 && args[0].equalsIgnoreCase("off")) {
             main.scoreboardDisabledList.add(player.getUniqueId());
             playerMsg(player, "Scoreboard disabled.");
-        } else if (args.length == 1 && args[0].equalsIgnoreCase("reload") && player.hasPermission("thalwyrn.commands.scoreboard.reload")) {
-            main.saveDefaultConfig();
-            main.reloadConfig();
-            for (Player p : main.getServer().getOnlinePlayers()) {
-                if (!main.scoreboardDisabledList.contains(p.getUniqueId())) {
-                    p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
-                    ScoreboardListener.getListener().buildScoreboard(p);
-                }
-            }
-            playerMsg(player, "Config reloaded.");
-            return;
         } else {
             playerMsg(player, this.usageMessage);
             return;
@@ -68,9 +57,7 @@ public class ScoreboardCommand extends Command {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, String[] args) {
-        if (args.length == 1 && sender.hasPermission("thalwyrn.commands.scoreboard.reload")){
-            return Arrays.asList("on", "off", "reload");
-        } else if (args.length == 1){
+         if (args.length == 1){
             return Arrays.asList("on", "off");
         }
         return Collections.emptyList();
