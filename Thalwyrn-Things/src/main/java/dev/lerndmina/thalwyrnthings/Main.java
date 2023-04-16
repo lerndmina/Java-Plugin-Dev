@@ -55,6 +55,7 @@ public final class Main extends JavaPlugin implements Listener {
         new SlapCommand(this);
         new GlideBoostToggle(this);
         new ColourCommand(this);
+        new ThalwyrnCommand(this);
 
         this.getServer().getPluginManager().registerEvents(new parrotGlueListeners(), this);
         this.getServer().getPluginManager().registerEvents(new ScoreboardListener(), this);

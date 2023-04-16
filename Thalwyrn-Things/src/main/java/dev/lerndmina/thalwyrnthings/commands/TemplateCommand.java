@@ -17,10 +17,10 @@ public class TemplateCommand extends Command {
         super(
                 main,
                 true,
-                "thalwyrn",
+                "debugtemplatecommand",
                 "A test command woah",
                 "Put some usage here bro",
-                "thalwyrn.commands.CHANGEME",
+                "thalwyrn.commands.debugtemplatecommand",
                 new String[]{}
         );
     }
