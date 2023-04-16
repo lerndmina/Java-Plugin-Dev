@@ -1,10 +1,13 @@
 package dev.lerndmina.thalwyrnthings.events;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import dev.lerndmina.thalwyrnthings.Main;
 import dev.lerndmina.thalwyrnthings.Utils.FastOfflinePlayer;
 import static dev.lerndmina.thalwyrnthings.Utils.StringHelpers.*;
 import net.kyori.adventure.text.Component;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -42,14 +45,14 @@ public class ScoreboardListener implements Listener {
         }
         Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
         String scoreboardTitle = main.getConfig().getString("scoreboard-title");
-
+        boolean refreshTitle = parseString(scoreboardTitle).length() <= main.SCOREBOARD_MAX_TITLE_LENGTH;
         if (scoreboardTitle == null){
             scoreboardTitle = "&cNo Title";
             main.getLogger().warning("Please set your scoreboard-title in the config.");
         }
 
-
-        Objective objective = scoreboard.registerNewObjective("Thalwyrn", Criteria.DUMMY, Component.text(parseString(scoreboardTitle, player)));
+        // We use the old non text component method because the new one breaks hex colours.
+        Objective objective = scoreboard.registerNewObjective("Thalwyrn", Criteria.DUMMY, (parseString(scoreboardTitle, player)));
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         List<String> scoreboardContent = main.getConfig().getStringList("scoreboard-lines");
         if (scoreboardContent.isEmpty()){
@@ -66,7 +69,9 @@ public class ScoreboardListener implements Listener {
         for (int i = 0; i < scoreboardContent.size(); i++ ){
             FastOfflinePlayer offlinePlayer = new FastOfflinePlayer(getColourForName(i));
             Team team = scoreboard.registerNewTeam("Line " + i);
-            team.prefix(Component.text(parseString(scoreboardContent.get(i), player)));
+
+            // We use the old non text component method because the new one breaks hex colours.
+            team.setPrefix(parseString(scoreboardContent.get(i), player));
             team.addPlayer(offlinePlayer);
             objective.getScore(offlinePlayer).setScore(i);
         }
@@ -91,15 +96,16 @@ public class ScoreboardListener implements Listener {
                         this.cancel();
                         return;
                     }
-
-                    scoreboard.getObjective(DisplaySlot.SIDEBAR).displayName(Component.text(parseString(finalScoreboardTitle, player)));
+                    if(refreshTitle){
+                        scoreboard.getObjective(DisplaySlot.SIDEBAR).setDisplayName(parseString(finalScoreboardTitle, player));
+                    }
 
                     for (int i = 0; i < finalScoreboardContent.size(); i++ ){
                         Team team = scoreboard.getTeam("Line " + i);
-                        team.prefix(Component.text(parseString(finalScoreboardContent.get(i), player)));
+                        team.setPrefix(parseString(finalScoreboardContent.get(i), player));
                     }
                 }
-            }.runTaskTimer(Main.getInstance(), 23, 23); // Delay in ticks 4 scoreboard refresh.
+            }.runTaskTimer(Main.getInstance(), 63, 63); // Delay in ticks 4 scoreboard refresh.
         } catch (Exception e){
             consoleMsg("Cringe runnable threw an error", Main.consoleTypes.SEVERE);
             consoleMsg(Arrays.toString(e.getStackTrace()), Main.consoleTypes.SEVERE);
