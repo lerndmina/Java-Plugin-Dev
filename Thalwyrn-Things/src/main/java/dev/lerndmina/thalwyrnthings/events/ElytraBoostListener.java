@@ -38,7 +38,7 @@ public class ElytraBoostListener implements Listener {
         }
     }
 
-    @EventHandler(ignoreCancelled = true)
+    @EventHandler(ignoreCancelled = false)
     private void onMoveWhileGliding(PlayerMoveEvent event){
         // If player is not in the list we return as quickly as possible to save resources
         if (!Main.getInstance().currentlyGlideBoosting.contains(event.getPlayer().getUniqueId())) {

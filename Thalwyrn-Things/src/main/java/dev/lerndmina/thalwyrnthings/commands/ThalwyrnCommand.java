@@ -32,7 +32,7 @@ public class ThalwyrnCommand extends Command {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload") && player.hasPermission("thalwyrn.commands.reload")) {
             main.saveDefaultConfig();
             main.reloadConfig();
-            main.debug = main.getConfig().getBoolean("debug");
+            main.debug = main.getConfig().getBoolean("debug-toggle");
             for (Player p : main.getServer().getOnlinePlayers()) {
                 if (!main.scoreboardDisabledList.contains(p.getUniqueId())) {
                     p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
