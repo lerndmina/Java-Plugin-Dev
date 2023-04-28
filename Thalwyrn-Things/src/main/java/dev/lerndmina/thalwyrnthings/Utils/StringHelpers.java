@@ -3,6 +3,8 @@ package dev.lerndmina.thalwyrnthings.Utils;
 import com.iridium.iridiumcolorapi.IridiumColorAPI;
 import dev.lerndmina.thalwyrnthings.Main;
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -22,6 +24,10 @@ public class StringHelpers {
         }
         input = IridiumColorAPI.process(input);
         return input;
+    }
+
+    public static Component parseComponent(String input, Player player){
+        return LegacyComponentSerializer.legacy('§').deserialize(parseString(input, player));
     }
 
 

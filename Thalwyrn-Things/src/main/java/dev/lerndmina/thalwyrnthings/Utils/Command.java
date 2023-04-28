@@ -32,15 +32,18 @@ public abstract class Command extends BukkitCommand{
         noPermissionMessage = ("You don't have permission \"" + permission + "\"");
         isPlayerNeeded = requiresPlayer;
 
-
-        try{ // Lmao we have to break our way into bukkit to force register the command without the BS in plugin.yml
-            Field field = Bukkit.getServer().getClass().getDeclaredField("commandMap");
-            field.setAccessible(true);
-            CommandMap map = (CommandMap) field.get(Bukkit.getServer());
-            map.register(command, this);
-            StringHelpers.debugConsoleMsg("Registered command: " + command + " with usage: " + usageMessage);
-        } catch (NoSuchFieldException | IllegalAccessException e){
-            e.printStackTrace();
+        if (!main.getConfig().getBoolean("disable-command-" + command,false)){
+            try{ // Lmao we have to break our way into bukkit to force register the command without the BS in plugin.yml
+                Field field = Bukkit.getServer().getClass().getDeclaredField("commandMap");
+                field.setAccessible(true);
+                CommandMap map = (CommandMap) field.get(Bukkit.getServer());
+                map.register(command, this);
+                StringHelpers.debugConsoleMsg("Registered command: " + command + " with usage: " + usageMessage);
+            } catch (NoSuchFieldException | IllegalAccessException e){
+                e.printStackTrace();
+            }
+        } else {
+            StringHelpers.debugConsoleMsg("Command \"/" + command + "\" is disabled in config, not registering.");
         }
     }
 

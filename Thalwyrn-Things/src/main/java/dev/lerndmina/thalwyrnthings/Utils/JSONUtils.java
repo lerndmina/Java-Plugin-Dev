@@ -2,16 +2,16 @@ package dev.lerndmina.thalwyrnthings.Utils;
 
 import com.google.gson.Gson;
 import dev.lerndmina.thalwyrnthings.Main;
-import org.bukkit.util.StringUtil;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class JSONUtils {
     Main main = Main.getInstance();
     public ArrayList<UUID> loadUUIDListFromFile(String filename, String friendlyName) {
-        ArrayList<UUID> uuidlist = convertToUUIDList(loadList(filename));
+        ArrayList<UUID> uuidlist = convertToUUIDList(loadStringList(filename));
         if (uuidlist != null) {
             main.getLogger().info(uuidlist.size() + " " + friendlyName + " loaded!");
             return uuidlist;
@@ -50,24 +50,39 @@ public class JSONUtils {
         return null;
     }
 
-    public void saveList(ArrayList<String> arr, String filename){
+    public void saveStringList(ArrayList<String> arr, String filename){
         Gson gson = new Gson();
         File file = new File(main.getDataFolder() + "/" + filename);
-        main.getLogger().info(main.getDataFolder().toString());
         try {
             file.createNewFile();
             Writer writer = new FileWriter(file, false);
             gson.toJson(arr, writer);
             writer.flush();
             writer.close();
-            main.getLogger().info(filename + " saved.");
+            main.getLogger().info("List " + filename + " saved.");
         } catch (Exception e) {
             main.getLogger().severe("Failed to create or save " + filename);
             main.getLogger().severe(e.toString());
         }
     }
 
-    public ArrayList<String> loadList(String filename){
+    public void saveUUIDStringMap(HashMap<UUID, String> map, String filename){
+        Gson gson = new Gson();
+        File file = new File(main.getDataFolder() + "/" + filename);
+        try {
+            file.createNewFile();
+            Writer writer = new FileWriter(file, false);
+            gson.toJson(map, writer);
+            writer.flush();
+            writer.close();
+            main.getLogger().info("Map " + filename + " saved.");
+        } catch (Exception e) {
+            main.getLogger().severe("Failed to create or save " + filename);
+            main.getLogger().severe(e.toString());
+        }
+    }
+
+    public ArrayList<String> loadStringList(String filename){
         Gson gson = new Gson();
         File file = new File (main.getDataFolder() + "/" + filename);
         if (file.exists()) {
@@ -81,5 +96,27 @@ public class JSONUtils {
             return arrlist;
         }
         return null;
+    }
+
+    public HashMap<UUID, String> loadUUIDStringMap(String filename){
+        Gson gson = new Gson();
+        File file = new File (main.getDataFolder() + "/" + filename);
+        HashMap<UUID, String> map = new HashMap<>();
+        if (file.exists()) {
+            Reader reader;
+            try {
+                reader = new FileReader(file);
+                map = gson.fromJson(reader, map.getClass());
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if(map != null && map.size() > 0){
+            StringHelpers.consoleMsg(map.size() + " nickname pairs loaded!", Main.consoleTypes.INFO);
+            StringHelpers.debugConsoleMsg(map.toString());
+            return map;
+        }
+        StringHelpers.debugConsoleMsg("No map " + filename + " found. Creating new map.");
+        return new HashMap<>();
     }
 }

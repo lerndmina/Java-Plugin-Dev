@@ -40,7 +40,6 @@ public class ThalwyrnCommand extends Command {
                 }
             }
             playerMsg(player, "Config reloaded.");
-            return;
         }
     }
 

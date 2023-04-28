@@ -4,17 +4,13 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import dev.lerndmina.thalwyrnthings.Main;
 import dev.lerndmina.thalwyrnthings.Utils.FastOfflinePlayer;
 import static dev.lerndmina.thalwyrnthings.Utils.StringHelpers.*;
-
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.minimessage.MiniMessage;
-import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.*;
 
 import java.util.Arrays;
@@ -60,7 +56,7 @@ public class ScoreboardListener implements Listener {
         }
 
         // We use the old non text component method because the new one breaks hex colours.
-        Objective objective = scoreboard.registerNewObjective("Thalwyrn", Criteria.DUMMY, (LegacyComponentSerializer.legacy('§').deserialize(parseString(scoreboardTitle, player))));
+        Objective objective = scoreboard.registerNewObjective("Thalwyrn", Criteria.DUMMY, (parseComponent(scoreboardTitle, player)));
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         List<String> scoreboardContent = main.getConfig().getStringList("scoreboard-lines");
         if (scoreboardContent.isEmpty()){
@@ -78,7 +74,7 @@ public class ScoreboardListener implements Listener {
             FastOfflinePlayer offlinePlayer = new FastOfflinePlayer(getColourForName(i));
             Team team = scoreboard.registerNewTeam("Line " + i);
 
-            team.prefix(LegacyComponentSerializer.legacy('§').deserialize(parseString(scoreboardContent.get(i), player)));
+            team.prefix(parseComponent(scoreboardContent.get(i), player));
             team.addPlayer(offlinePlayer);
             objective.getScore(offlinePlayer).setScore(i);
         }
@@ -87,7 +83,7 @@ public class ScoreboardListener implements Listener {
         try {
             List<String> finalScoreboardContent = scoreboardContent;
             String finalScoreboardTitle = scoreboardTitle;
-            new BukkitRunnable(){
+           BukkitTask runnable = new BukkitRunnable(){
                 public void run(){
                     if(!main.getConfig().getBoolean("enable-scoreboard")){
                         this.cancel();
@@ -103,14 +99,16 @@ public class ScoreboardListener implements Listener {
                         this.cancel();
                         return;
                     }
-                        scoreboard.getObjective(DisplaySlot.SIDEBAR).displayName(LegacyComponentSerializer.legacy('§').deserialize(parseString(finalScoreboardTitle, player)));
+                        scoreboard.getObjective(DisplaySlot.SIDEBAR).displayName(parseComponent(finalScoreboardTitle, player));
 
                     for (int i = 0; i < finalScoreboardContent.size(); i++ ){
                         Team team = scoreboard.getTeam("Line " + i);
-                        team.prefix(LegacyComponentSerializer.legacy('§').deserialize(parseString(finalScoreboardContent.get(i), player)));
+                        team.prefix(parseComponent(finalScoreboardContent.get(i), player));
                     }
                 }
-            }.runTaskTimer(Main.getInstance(), updateInterval, updateInterval); // Delay in ticks 4 scoreboard refresh.
+            }.runTaskTimer(Main.getInstance(), updateInterval, updateInterval);// Delay in ticks 4 scoreboard refresh.
+
+            main.runningTasks.add(runnable);
         } catch (Exception e){
             consoleMsg("Cringe runnable threw an error", Main.consoleTypes.SEVERE);
             consoleMsg(Arrays.toString(e.getStackTrace()), Main.consoleTypes.SEVERE);
