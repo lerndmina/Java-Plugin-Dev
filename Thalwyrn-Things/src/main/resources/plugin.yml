@@ -1,9 +1,0 @@
-name: ThalwyrnThings
-version: '${project.version}'
-main: dev.lerndmina.thalwyrnthings.Main
-api-version: 1.19
-authors: [ Wild ]
-description: Some things for my server Thalwyrn
-website: https://lerndmina.dev
-softdepend:
-  - PlaceholderAPI
